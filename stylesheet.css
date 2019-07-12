@@ -1,0 +1,49 @@
+.chart-container {
+  display: grid;
+  grid-template-areas: "yTitle title"
+                       "yTitle chart"
+                       "yTitle xValue"
+                       "yTitle xTitle";
+  margin-bottom: 30px;
+  max-width: 1000px;
+}
+.main-title {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  grid-area: title;
+  text-align: center;
+  padding-bottom: 15px;
+}
+.yTitle {
+  font-family: sans-serif;
+  grid-area: yTitle;
+  text-align: center;
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.yTitle div {
+  transform: rotate(-90deg);
+  width: max-content;
+}
+.xTitle {
+  font-family: sans-serif;
+  grid-area: xTitle;
+  text-align: center;
+}
+.chart {
+  height: max-content;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  grid-area: chart;
+}
+.outer {
+  position: relative;
+  padding-left: 1px;
+  height: auto;
+  width: 20%;
+  display: grid;
+  grid-template-rows: 400px auto;
+}
