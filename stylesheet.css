@@ -47,3 +47,44 @@
   display: grid;
   grid-template-rows: 400px auto;
 }
+.inner {
+  align-self: end;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.stack {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.yAxis {
+  height: 400px;
+  min-width: 40px;
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  align-items: end;
+}
+
+.xValues {
+  overflow: scroll;
+  align-self: center;
+  justify-self: left;
+}
+
+.legend {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.subCat {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 5px;
+}
+.swatch {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+}
