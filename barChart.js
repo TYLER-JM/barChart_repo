@@ -50,5 +50,45 @@ $(function() {
   }
   console.log("data heights converted to: " + scaledValues);
 
+  let createScale = function(obj) {
+    //obj will be <options[0]>
+    let yAxis = $(makeEl("div", "yAxis"));
+    yAxis.prependTo(chart);
+
+    //get %s for heights of <div>s...
+    var equalPer = (obj.end - obj.start) / obj.increment;
+    equalPer = 100 / equalPer;
+    console.log("scale markers distance from top = " + equalPer);
+
+    
+    let adjustedPer;
+    for (let i = obj.start, j = 0; i <= obj.end; i += obj.increment, j++) {
+      //create the 'ticks' marking the y-axis
+      yAxis.append(makeEl("div", "marker"));
+      adjustedPer = (equalPer * j).toFixed(2) + "%";
+      $(element + " .yAxis > div:last").css({
+                                "position" : "absolute",
+                                "bottom" : adjustedPer,
+                                "border-bottom" : "1px solid red",
+                                "width" : "20px"
+                                 });
+      //create the values beside each tick
+      yAxis.append(makeEl("div"));
+      adjustedPer = ((equalPer * j) - 2.5).toFixed(2) + "%";
+      $(element + " .yAxis > div:last").text(i.toLocaleString("en-us"))
+                            .css({
+                                "position" : "absolute",
+                                "bottom" : adjustedPer,
+                                "right" : "25px",
+                                "align-self" : "start",
+                                "width" : "auto"
+                                });                         
+
+    }
+
+  }; //end createScale
+
+  createScale(options[0]);
+
   }; //end drawBarChart()
 }); //end ready
