@@ -16,6 +16,9 @@ $(function() {
   var container = $(makeEl("div", "chart-container"));
   var chart = $(makeEl("div", "chart"));
 
+  container.appendTo(element);
+  chart.appendTo(container);
+
   //adding title elements
   var mainTitle = $(makeEl("div", "main-title"));
   mainTitle.text(options[1].title)
@@ -29,9 +32,6 @@ $(function() {
   var xTitle = $(makeEl("div", "xTitle"));
   xTitle.appendTo(container)
         .text(options[1].xTitle);
-
-  container.appendTo(element);
-  chart.appendTo(container);
 
   //convert data points into percentages in order to use as heights
   //store the percentages into an array scaledValues
@@ -165,5 +165,31 @@ $(function() {
   }
 
   }; //end drawBarChart()
+
+  drawBarChart([
+    {title: "winter", value: [12, 2, 10]},
+    {title: "spring", value: [3, 13, 4]},
+    {title: "summer", value: [4, 16, 1]},
+    {title: "autumn", value: [14, 4, 13]}
+              ],
+              [
+                {start: 0, end: 35, increment: 5},
+                {
+                  title: "Items Purchased",
+                  yTitle: "amount",
+                  xTitle: "article of clothing",
+                  rotate: false
+                },
+                {
+                  barColor: [
+                    ["pants", "blue"],
+                    ["shorts", "red"],
+                    ["coats", "gray"]
+                  ],
+                  xValuePos: "center",
+                  
+                  padding: "20px"
+                }
+              ], ".new-chart");
 
 }); //end ready
