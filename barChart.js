@@ -16,6 +16,20 @@ $(function() {
   var container = $(makeEl("div", "chart-container"));
   var chart = $(makeEl("div", "chart"));
 
+  //adding title elements
+  var mainTitle = $(makeEl("div", "main-title"));
+  mainTitle.text(options[1].title)
+           .appendTo(container);
+
+  var yTitle = $(makeEl("div", "yTitle"));
+  yTitle.appendTo(container)
+        .append(makeEl("div"));
+  $(element + " .yTitle > div:last").text(options[1].yTitle);
+
+  var xTitle = $(makeEl("div", "xTitle"));
+  xTitle.appendTo(container)
+        .text(options[1].xTitle);
+
   container.appendTo(element);
   chart.appendTo(container);
 
@@ -36,5 +50,5 @@ $(function() {
   }
   console.log("data heights converted to: " + scaledValues);
 
-  };
-});
+  }; //end drawBarChart()
+}); //end ready
