@@ -139,6 +139,31 @@ $(function() {
     createBar([scaledValues[i], data[i].value, data[i].title], [options[2].barColor, options[2].xValuePos, options[2].padding]);
   }
 
+   //rotate xValue titles if required
+   if(options[1].rotate) {
+    $(element + " .xValues").css({
+      "transform" : "rotate(45deg)",
+      "transform-origin" : "10px 20px"
+    })
+  }
+
+      //check whether or not to create a legend
+  if (typeof options[2].barColor === "object" ) {
+    console.log("lets's make a legend");
+    let legend = $(makeEl("div", "legend"));
+    legend.appendTo(chart);
+
+    for (let i = 0; i < options[2].barColor.length; i++) {
+      let swatch = $(makeEl("div", "swatch"));
+      let subCatTitle = $(makeEl("div", "subCatTitle"));
+      swatch.css("background-color", options[2].barColor[i][1]);
+      subCatTitle.text(options[2].barColor[i][0]);
+
+      $(makeEl("div", "subCat")).append(swatch).append(subCatTitle).appendTo(legend);
+    }
+    //or try using forEAch()
+  }
+
   }; //end drawBarChart()
 
 }); //end ready
