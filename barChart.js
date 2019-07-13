@@ -90,5 +90,55 @@ $(function() {
 
   createScale(options[0]);
 
+  let createBar = function(dataArr, visArr) {
+    let outer = $(makeEl("div", "outer"));
+
+    //newly added to get titles...moved
+    let xValues = $(makeEl("div", "xValues"));
+    outer.append(xValues);
+    xValues.html(dataArr[2]);
+    //...above, newly added
+
+    outer.appendTo(chart);
+    outer.css("padding-right", visArr[2]);
+    
+
+    if (typeof dataArr[1] === "object") {
+
+      let stack = $(makeEl("div", "stack"));
+      outer.prepend(stack);
+      for (let i = 0; i < dataArr[0].length; i++) {
+        let inner = $(makeEl("div", "inner"));
+        stack.append(inner);
+        inner.css({
+                  "height" : dataArr[0][i],
+                  "background-color" : visArr[0][i][1],
+                  "align-items" : visArr[1],
+                  "color" : "black"
+                })
+              .text(dataArr[1][i]);
+      }
+    } else {
+      let inner = $(makeEl("div", "inner"));
+      outer.prepend(inner);
+
+      inner.css({
+                "height" : dataArr[0],
+                "align-items" : visArr[1],
+                "color" : "black",
+                "background-color" : visArr[0],
+              })
+            .text(dataArr[1]);
+    }
+
+    
+  }; //end createBar()
+
+  //create one bar for every data point
+  for (let i = 0; i < data.length; i++) {
+    createBar([scaledValues[i], data[i].value, data[i].title], [options[2].barColor, options[2].xValuePos, options[2].padding]);
+  }
+
   }; //end drawBarChart()
+
 }); //end ready
