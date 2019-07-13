@@ -1,6 +1,6 @@
-  //jQuery ready...
-$(function() {
-  let drawBarChart = function(data, options, element) {
+//jQuery ready...
+// $(function() {
+  function drawBarChart(data, options, element) {
 
   //helper function to help create new elements
   let makeEl = function(type, className) {
@@ -177,7 +177,7 @@ $(function() {
                 {
                   title: "Items Purchased",
                   yTitle: "amount",
-                  xTitle: "article of clothing",
+                  xTitle: "season",
                   rotate: false
                 },
                 {
@@ -192,4 +192,4 @@ $(function() {
                 }
               ], ".new-chart");
 
-}); //end ready
+// }); //end ready

@@ -5,36 +5,35 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="barChart.js"></script>
+    
+    
   </head>
   <body>
     <div class="new-chart"></div>
-    <script>
-      drawBarChart([
-    {title: "winter", value: [12, 2, 10]},
-    {title: "spring", value: [3, 13, 4]},
-    {title: "summer", value: [4, 16, 1]},
-    {title: "autumn", value: [14, 4, 13]}
-              ],
-              [
-                {start: 0, end: 35, increment: 5},
-                {
-                  title: "Items Purchased",
-                  yTitle: "amount",
-                  xTitle: "article of clothing",
-                  rotate: false
-                },
-                {
-                  barColor: [
-                    ["pants", "blue"],
-                    ["shorts", "red"],
-                    ["coats", "gray"]
-                  ],
-                  xValuePos: "center",
-                  
-                  padding: "20px"
-                }
-              ], ".new-chart");
+    <script type="text/javascript" src="barChart.js"></script>
+    <script type="text/javascript">
+      // $(function() {
+                drawBarChart([
+          {title: "Cars", value: [7, 8]},
+          {title: "Trucks", value: [9, 10]},
+          {title: "Dogs", value: [2, 3]}
+        ],
+        [{start: 0, end: 20, increment: 5},
+          {
+            title: "Vehicles",
+            yTitle: "Amount",
+            xTitle: "Type",
+            rotate: false
+          },
+          {
+            barColor: [["men", "gray"], ["women", "red"]],
+            xValuePos: "center",
+            
+            padding: "20px"
+          }
+        ], ".new-chart");
+
+      // }); //end ready
     </script>
   </body>
 </html>
