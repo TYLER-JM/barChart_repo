@@ -153,15 +153,15 @@
     let legend = $(makeEl("div", "legend"));
     legend.appendTo(chart);
 
-    for (let i = 0; i < options[2].barColor.length; i++) {
+    options[2].barColor.forEach(element => {
       let swatch = $(makeEl("div", "swatch"));
       let subCatTitle = $(makeEl("div", "subCatTitle"));
-      swatch.css("background-color", options[2].barColor[i][1]);
-      subCatTitle.text(options[2].barColor[i][0]);
+      swatch.css("background-color", element[1]);
+      subCatTitle.text(element[0]);
 
       $(makeEl("div", "subCat")).append(swatch).append(subCatTitle).appendTo(legend);
-    }
-    //or try using forEAch()
+    });
+    
   }
 
   }; //end drawBarChart()
