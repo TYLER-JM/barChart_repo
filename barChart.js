@@ -1,6 +1,6 @@
 //jQuery ready...
 // $(function() {
-  function drawBarChart(data, options, element) {
+function drawBarChart(data, options, element) {
 
   //helper function to help create new elements
   let makeEl = function(type, className) {
@@ -22,7 +22,7 @@
   //adding title elements
   var mainTitle = $(makeEl("div", "main-title"));
   mainTitle.text(options[1].title)
-           .appendTo(container);
+            .appendTo(container);
 
   var yTitle = $(makeEl("div", "yTitle"));
   yTitle.appendTo(container)
@@ -51,7 +51,7 @@
   console.log("data heights converted to: " + scaledValues);
 
   let createScale = function(obj) {
-    //obj will be <options[0]>
+    //obj will be options[0]
     let yAxis = $(makeEl("div", "yAxis"));
     yAxis.prependTo(chart);
 
@@ -71,7 +71,7 @@
                                 "bottom" : adjustedPer,
                                 "border-bottom" : "1px solid red",
                                 "width" : "20px"
-                                 });
+                                  });
       //create the values beside each tick
       yAxis.append(makeEl("div"));
       adjustedPer = ((equalPer * j) - 2.5).toFixed(2) + "%";
@@ -104,7 +104,6 @@
     
 
     if (typeof dataArr[1] === "object") {
-
       let stack = $(makeEl("div", "stack"));
       outer.prepend(stack);
       for (let i = 0; i < dataArr[0].length; i++) {
@@ -118,10 +117,10 @@
                 })
               .text(dataArr[1][i]);
       }
+
     } else {
       let inner = $(makeEl("div", "inner"));
       outer.prepend(inner);
-
       inner.css({
                 "height" : dataArr[0],
                 "align-items" : visArr[1],
@@ -130,8 +129,6 @@
               })
             .text(dataArr[1]);
     }
-
-    
   }; //end createBar()
 
   //create one bar for every data point
@@ -139,8 +136,8 @@
     createBar([scaledValues[i], data[i].value, data[i].title], [options[2].barColor, options[2].xValuePos, options[2].padding]);
   }
 
-   //rotate xValue titles if required
-   if(options[1].rotate) {
+    //rotate xValue titles if required
+    if(options[1].rotate) {
     $(element + " .xValues").css({
       "transform" : "rotate(45deg)",
       "transform-origin" : "10px 20px"
@@ -158,13 +155,12 @@
       let subCatTitle = $(makeEl("div", "subCatTitle"));
       swatch.css("background-color", element[1]);
       subCatTitle.text(element[0]);
-
       $(makeEl("div", "subCat")).append(swatch).append(subCatTitle).appendTo(legend);
     });
     
   }
 
-  }; //end drawBarChart()
+}; //end drawBarChart()
 
   drawBarChart([
     {title: "winter", value: [12, 2, 10]},
