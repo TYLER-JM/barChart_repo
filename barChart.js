@@ -53,12 +53,12 @@ function drawBarChart(data, options, element) {
     //obj will be options[0]
     let yAxis = $(makeEl("div", "yAxis"));
     yAxis.prependTo(chart);
-
+    
     //get %s for heights of <div>s...
     var equalPer = (obj.end - obj.start) / obj.increment;
     equalPer = 100 / equalPer;
     console.log("scale markers distance from top = " + equalPer);
-
+    
     
     let adjustedPer;
     for (let i = obj.start, j = 0; i <= obj.end; i += obj.increment, j++) {
@@ -66,14 +66,14 @@ function drawBarChart(data, options, element) {
       yAxis.append(makeEl("div", "marker"));
       adjustedPer = (equalPer * j).toFixed(2) + "%";
       $(element + " .yAxis > div:last").css("bottom", adjustedPer);
-
+      
       //create the values beside each tick
       yAxis.append(makeEl("div", "marker-value"));
       adjustedPer = ((equalPer * j) - 2.5).toFixed(2) + "%";
       $(element + " .yAxis > div:last").text(i.toLocaleString("en-us"))
-                                       .css("bottom", adjustedPer);
+      .css("bottom", adjustedPer);
     }
-
+    
   }; //end createScale
 
   createScale(options[0]);
