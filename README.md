@@ -1,6 +1,6 @@
 createChart(data, options, element) 
 
-•data
+1. **data**
   -an array of objects:
 
   ```javascript
@@ -16,12 +16,11 @@ createChart(data, options, element)
   ```javascript
     {title: "january", value: [12, 7, 14]},
   ```
-•options
-  -an array of different objects
-  `options[0]` will be...
+1. **options**: an array of different objects
+  1. `options[0]` will be...
     `{start: x, end: y, increment: z}`
   
-  `options[1]` will be...
+  1. `options[1]` will be...
   ```javascript
     {
       title: "Family Ages", 
@@ -30,9 +29,9 @@ createChart(data, options, element)
       rotate: false
     }
   ```
-  set rotate to **true** or __FALSE__ to rotate the xTitles by 45º to accomadate long xTitles
+  set `rotate` to **true** or **false** to rotate the xTitles by 45º to accomadate long words
 
-  `options[2]` will be...
+  1. `options[2]` will be...
   ```javascript
     {
       barColor: "salmon",
@@ -40,23 +39,15 @@ createChart(data, options, element)
       padding: "10px"
     }
   ```
-  barColor
-    can be any format to set a color:
-    rgba(), rgb(), #hex, etc... just put it all in quotes
+    1. **barColor** can be any format used to set a color: rgba(), rgb(), `#ffddff`, etc... just put it all in quotes. If including stacked bars, **barColor** will be a 2D array like this...
+  ```javascript
+      barColor: [
+                ["sub-catagory", "desired-color"],
+                ["2ndSub", "2ndColor"]
+                ],
+  ```
+    1. **xValuePos** positions the value displayed inside each bar. set it to something `align-items:` can take, ie... `start`, `center`, or `end` 
 
-    if including stacked bars, barColor will be a 2D array like this...
-```javascript
-        barColor: [
-                   ["sub-catagory", "desired-color"],
-                   ["2ndSub", "2ndColor"]
-                   ],
-```
-  **xValuePos** set to something `align-items:` can take, ie...
-    "start"
-    "center"
-    "end" 
-  -padding sets distance between bars
+    1. **padding** sets distance between bars.
 
-  •element
-    -should include a period for class, or hashtag for id:
-      `".new-bar"` or `"#new-item"`
+1. **element** should include a period for class, or hashtag for id: `".new-bar"` or `"#new-item"`
