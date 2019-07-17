@@ -73,6 +73,11 @@
   width: 20px;
   border-bottom: 1px solid red;
 }
+.yAxis .marker-value {
+  right: 25px;
+  align-self: start;
+  width: auto;
+}
 .xValues {
   overflow: scroll;
   align-self: center;
