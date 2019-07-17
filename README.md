@@ -32,20 +32,20 @@ createChart(data, options, element)
   set `rotate` to **true** or **false** to rotate the xTitles by 45º to accomadate long words
 
   * `options[2]` will be...
-  ```javascript
-    {
-      barColor: "salmon",
-      xValuePos: "start",
-      padding: "10px"
-    }
-  ```
+    ```javascript
+      {
+        barColor: "salmon",
+        xValuePos: "start",
+        padding: "10px"
+      }
+    ```
     - **barColor** can be any format used to set a color: rgba(), rgb(), `#ffddff`, etc... just put it all in quotes. If including stacked bars, **barColor** will be a 2D array like this...
-  ```javascript
-      barColor: [
-                ["sub-catagory", "desired-color"],
-                ["2ndSub", "2ndColor"]
-                ],
-  ```
+    ```javascript
+        barColor: [
+                  ["sub-catagory", "desired-color"],
+                  ["2ndSub", "2ndColor"]
+                  ],
+    ```
     - **xValuePos** positions the value displayed inside each bar. set it to something `align-items:` can take, ie... `start`, `center`, or `end` 
 
     - **padding** sets distance between bars.
