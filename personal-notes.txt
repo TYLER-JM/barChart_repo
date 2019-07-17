@@ -1,0 +1,4 @@
+july 16
+
+  - figure out how to reorder the options parameter
+  
