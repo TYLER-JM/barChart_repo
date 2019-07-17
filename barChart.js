@@ -65,18 +65,13 @@ function drawBarChart(data, options, element) {
       //create the 'ticks' marking the y-axis
       yAxis.append(makeEl("div", "marker"));
       adjustedPer = (equalPer * j).toFixed(2) + "%";
-      $(element + " .yAxis > div:last").css({
-                                "position" : "absolute",
-                                "bottom" : adjustedPer,
-                                "border-bottom" : "1px solid red",
-                                "width" : "20px"
-                                  });
+      $(element + " .yAxis > div:last").css("bottom", adjustedPer);
+      
       //create the values beside each tick
       yAxis.append(makeEl("div"));
       adjustedPer = ((equalPer * j) - 2.5).toFixed(2) + "%";
       $(element + " .yAxis > div:last").text(i.toLocaleString("en-us"))
                             .css({
-                                "position" : "absolute",
                                 "bottom" : adjustedPer,
                                 "right" : "25px",
                                 "align-self" : "start",

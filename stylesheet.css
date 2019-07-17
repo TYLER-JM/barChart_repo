@@ -66,6 +66,13 @@
   align-items: end;
 }
 
+.yAxis > div {
+  position: absolute;
+}
+.yAxis .marker {
+  width: 20px;
+  border-bottom: 1px solid red;
+}
 .xValues {
   overflow: scroll;
   align-self: center;
