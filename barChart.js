@@ -16,8 +16,7 @@ function drawBarChart(data, options, element) {
   var container = $(makeEl("div", "chart-container"));
   var chart = $(makeEl("div", "chart"));
 
-  container.appendTo(element);
-  chart.appendTo(container);
+  container.appendTo(element).append(chart);
 
   //adding title elements
   var mainTitle = $(makeEl("div", "main-title"));
@@ -123,9 +122,9 @@ function drawBarChart(data, options, element) {
       outer.prepend(inner);
       inner.css({
                 "height" : dataArr[0],
+                "background-color" : visArr[0],
                 "align-items" : visArr[1],
                 "color" : "black",
-                "background-color" : visArr[0],
               })
             .text(dataArr[1]);
     }
