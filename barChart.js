@@ -66,18 +66,12 @@ function drawBarChart(data, options, element) {
       yAxis.append(makeEl("div", "marker"));
       adjustedPer = (equalPer * j).toFixed(2) + "%";
       $(element + " .yAxis > div:last").css("bottom", adjustedPer);
-      
+
       //create the values beside each tick
-      yAxis.append(makeEl("div"));
+      yAxis.append(makeEl("div", "marker-value"));
       adjustedPer = ((equalPer * j) - 2.5).toFixed(2) + "%";
       $(element + " .yAxis > div:last").text(i.toLocaleString("en-us"))
-                            .css({
-                                "bottom" : adjustedPer,
-                                "right" : "25px",
-                                "align-self" : "start",
-                                "width" : "auto"
-                                });                         
-
+                                       .css("bottom", adjustedPer);
     }
 
   }; //end createScale
