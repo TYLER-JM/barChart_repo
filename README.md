@@ -30,7 +30,7 @@ createChart(data, options, element)
       rotate: false
     }
   ```
-    -set rotate to **true** or __FALSE__ to rotate the xTitles by 45º to accomadate long xTitles
+  set rotate to **true** or __FALSE__ to rotate the xTitles by 45º to accomadate long xTitles
 
   `options[2]` will be...
   ```javascript
@@ -40,24 +40,23 @@ createChart(data, options, element)
       padding: "10px"
     }
   ```
-    -barColor
-      can be any format to set a color:
-      rgba(), rgb(), #hex, etc... just put it all in quotes
+  barColor
+    can be any format to set a color:
+    rgba(), rgb(), #hex, etc... just put it all in quotes
 
-      if including stacked bars, barColor will be a 2D array like this...
+    if including stacked bars, barColor will be a 2D array like this...
 ```javascript
         barColor: [
                    ["sub-catagory", "desired-color"],
                    ["2ndSub", "2ndColor"]
                    ],
 ```
-    **xValuePos** set to something align-items: can take, ie...
-      "start"
-      "center"
-      "end" 
-    -padding sets distance between bars
+  **xValuePos** set to something `align-items:` can take, ie...
+    "start"
+    "center"
+    "end" 
+  -padding sets distance between bars
 
   •element
     -should include a period for class, or hashtag for id:
-      ".new-bar"
-      "#new-item"
+      `".new-bar"` or `"#new-item"`
