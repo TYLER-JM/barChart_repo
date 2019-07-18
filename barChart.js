@@ -1,17 +1,48 @@
-//jQuery ready...
-// $(function() {
-function drawBarChart(data, options, element) {
+//helper function to help create new elements
+function makeEl(type, className) {
+  let string = "<" + type;
+  if (className === undefined) {
+    string += "></" + type + ">";
+  } else {
+    string += " class='" + className + "'></" + type + ">";
+  }
+  return string;
+};
 
-  //helper function to help create new elements
-  let makeEl = function(type, className) {
-    let string = "<" + type;
-    if (className === undefined) {
-      string += "></" + type + ">";
-    } else {
-      string += " class='" + className + "'></" + type + ">";
-    }
-    return string;
-  };
+/*this function returns a 2D array
+ * each sub-array contains: two strings used for positioning the markers
+ * and the numbers displayed beside the markers, and one number used as
+ * the number to be displayed beside the marker
+ */
+function getScale(s, e, inc) {
+  arrOut = [];
+  for (let i = s, j = 0; i <= e; i += inc, j++) {
+    let val = 100 / ((e-s)/inc);
+    let x = (val*j).toFixed(2) + "%";
+    let y = (val*j-2.5).toFixed(2) + "%";
+    let z = inc*j;
+    arrOut.push([x,y,z]);
+  }
+  return arrOut;
+}
+/* This function will create the ticks,
+ * and the numbers to be displayed beside the ticks
+ * along the y Axis of the chart.
+ * it takes as arguments two elements: [the element
+ * which the entire chart is appendedTo, and the <chart>
+ * element which the yAxis is prependedTo].
+ * its second argument is an array that is made with getScale()
+ */
+function createYAxis(elems, arr) {
+    elems[1].append(makeEl("div", "marker"));
+    $(elems[0] + " .yAxis > div:last").css("bottom", arr[0]);
+    elems[1].append(makeEl("div", "marker-value"));
+    $(elems[0] + " .yAxis > div:last").css("bottom", arr[1])
+                                       .text(arr[2]);
+  
+} 
+
+function drawBarChart(data, options, element) {
 
   var container = $(makeEl("div", "chart-container"));
   var chart = $(makeEl("div", "chart"));
@@ -49,6 +80,21 @@ function drawBarChart(data, options, element) {
   }
   console.log("data heights converted to: " + scaledValues);
 
+
+  /****** *
+  let yAxis = $(makeEl("div", "yAxis"));
+  yAxis.prependTo(chart);
+
+  let yAxisScale = getScale(options[0].start, options[0].end, options[0].increment);
+  console.log(yAxisScale[0]);
+
+  for (let sub in yAxisScale) {
+    createYAxis([element, yAxis], sub);
+    console.log(sub);
+  }
+  * *****/
+  /******* */
+
   let createScale = function(obj) {
     //obj will be options[0]
     let yAxis = $(makeEl("div", "yAxis"));
@@ -77,6 +123,8 @@ function drawBarChart(data, options, element) {
   }; //end createScale
 
   createScale(options[0]);
+
+  /* ******/
 
   let createBar = function(dataArr, visArr) {
     let outer = $(makeEl("div", "outer"));
@@ -134,7 +182,6 @@ function drawBarChart(data, options, element) {
 
       //check whether or not to create a legend
   if (typeof options[2].barColor === "object" ) {
-    console.log("lets's make a legend");
     let legend = $(makeEl("div", "legend"));
     legend.appendTo(chart);
 
@@ -175,5 +222,3 @@ function drawBarChart(data, options, element) {
                   padding: "20px"
                 }
               ], ".new-chart");
-
-// }); //end ready
