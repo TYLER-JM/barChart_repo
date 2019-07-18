@@ -33,11 +33,11 @@ function getScale(s, e, inc) {
  * element which each marker is prependedTo].
  * its second argument is an array that is made with getScale()
  */
-function createYAxis(elems, arr) {
-    elems[1].append(makeEl("div", "marker"));
-    $(elems[0] + " .yAxis > div:last").css("bottom", arr[0]);
-    elems[1].append(makeEl("div", "marker-value"));
-    $(elems[0] + " .yAxis > div:last").css("bottom", arr[1])
+function createYAxis(elem, selectors, arr) {
+    elem.append(makeEl("div", "marker"));
+    $(selectors[0] + " " + selectors[1] + " > div:last").css("bottom", arr[0]);
+    elem.append(makeEl("div", "marker-value"));
+    $(selectors[0] + " " + selectors[1] + " > div:last").css("bottom", arr[1])
                                        .text(arr[2]); 
 } 
 
@@ -81,47 +81,12 @@ function drawBarChart(data, options, element) {
   
   let yAxis = $(makeEl("div", "yAxis"));
   yAxis.prependTo(chart);
-
   let yAxisScale = getScale(options[0].start, options[0].end, options[0].increment);
-  console.log("yAxisScale is:");
-  console.log(yAxisScale);
 
    for (let i = 0; i < yAxisScale.length; i++) {
-    createYAxis([element, yAxis], yAxisScale[i]);
+    createYAxis(yAxis, [element, ".yAxis"], yAxisScale[i]);
   } 
-  
-  /******* *
 
-  let createScale = function(obj) {
-    //obj will be options[0]
-    let yAxis = $(makeEl("div", "yAxis"));
-    yAxis.prependTo(chart);
-    
-    //get %s for heights of <div>s...
-    var equalPer = (obj.end - obj.start) / obj.increment;
-    equalPer = 100 / equalPer;
-    console.log("scale markers distance from top = " + equalPer);
-    
-    
-    let adjustedPer;
-    for (let i = obj.start, j = 0; i <= obj.end; i += obj.increment, j++) {
-      //create the 'ticks' marking the y-axis
-      yAxis.append(makeEl("div", "marker"));
-      adjustedPer = (equalPer * j).toFixed(2) + "%";
-      $(element + " .yAxis > div:last").css("bottom", adjustedPer);
-      
-      //create the values beside each tick
-      yAxis.append(makeEl("div", "marker-value"));
-      adjustedPer = ((equalPer * j) - 2.5).toFixed(2) + "%";
-      $(element + " .yAxis > div:last").text(i.toLocaleString("en-us"))
-      .css("bottom", adjustedPer);
-    }
-    
-  }; //end createScale
-
-  createScale(options[0]);
-
-  * ******/
 
   let createBar = function(dataArr, visArr) {
     let outer = $(makeEl("div", "outer"));
