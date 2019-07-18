@@ -12,7 +12,7 @@ function makeEl(type, className) {
 /*this function returns a 2D array
  * each sub-array contains: two strings used for positioning the markers
  * and the numbers displayed beside the markers, and one number used as
- * the number to be displayed beside the marker
+ * the number to be displayed beside the marker. In that order
  */
 function getScale(s, e, inc) {
   arrOut = [];
@@ -25,12 +25,12 @@ function getScale(s, e, inc) {
   }
   return arrOut;
 }
-/* This function will create the ticks,
- * and the numbers to be displayed beside the ticks
+/* This function will create the markers,
+ * and the numbers to be displayed beside the markers
  * along the y Axis of the chart.
  * it takes as arguments two elements: [the element
- * which the entire chart is appendedTo, and the <chart>
- * element which the yAxis is prependedTo].
+ * which the entire chart is appendedTo, and the <yAxis>
+ * element which each marker is prependedTo].
  * its second argument is an array that is made with getScale()
  */
 function createYAxis(elems, arr) {
@@ -38,8 +38,7 @@ function createYAxis(elems, arr) {
     $(elems[0] + " .yAxis > div:last").css("bottom", arr[0]);
     elems[1].append(makeEl("div", "marker-value"));
     $(elems[0] + " .yAxis > div:last").css("bottom", arr[1])
-                                       .text(arr[2]);
-  
+                                       .text(arr[2]); 
 } 
 
 function drawBarChart(data, options, element) {
@@ -79,21 +78,19 @@ function drawBarChart(data, options, element) {
     }
   }
   console.log("data heights converted to: " + scaledValues);
-
-
-  /****** *
+  
   let yAxis = $(makeEl("div", "yAxis"));
   yAxis.prependTo(chart);
 
   let yAxisScale = getScale(options[0].start, options[0].end, options[0].increment);
-  console.log(yAxisScale[0]);
+  console.log("yAxisScale is:");
+  console.log(yAxisScale);
 
-  for (let sub in yAxisScale) {
-    createYAxis([element, yAxis], sub);
-    console.log(sub);
-  }
-  * *****/
-  /******* */
+   for (let i = 0; i < yAxisScale.length; i++) {
+    createYAxis([element, yAxis], yAxisScale[i]);
+  } 
+  
+  /******* *
 
   let createScale = function(obj) {
     //obj will be options[0]
@@ -124,7 +121,7 @@ function drawBarChart(data, options, element) {
 
   createScale(options[0]);
 
-  /* ******/
+  * ******/
 
   let createBar = function(dataArr, visArr) {
     let outer = $(makeEl("div", "outer"));
