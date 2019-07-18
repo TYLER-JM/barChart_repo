@@ -3,11 +3,12 @@ july 16
   - figure out how to reorder the options parameter
 
 july 17
-  -a new createScale() must include something to prepend yAxis to
+  -a new createScale() must include something to prepend yAxis to,
+  as well as the element that the chart is attached to
   -it will also include an argument which will be newArrayOfValues[i] so that it can be looped in the same way createBar is
   -newArrayOfValues[i] itself will be an array of three values
     •marker position
     •marker-value position
     •marker-value...value 
 
-  createScale(element, arr)
+  createScale(elems, arr)
