@@ -87,7 +87,10 @@ function drawBarChart(data, options, element) {
     createYAxis(yAxis, [element, ".yAxis"], yAxisScale[i]);
   } 
 
-
+  /* This function creates one bar, its arguments are...
+   * dataArr - an array containing the string used to set the height of the bar (i.e. '97%'),
+   * the value to display inside the bar, and the label to displey beneath the bar
+   */
   let createBar = function(dataArr, visArr) {
     let outer = $(makeEl("div", "outer"));
 
