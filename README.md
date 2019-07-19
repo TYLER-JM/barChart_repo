@@ -1,7 +1,6 @@
 createChart(data, options, element) 
 
-1. **data**
-  -an array of objects:
+1. **data**: an array of objects:
 
   ```javascript
   [
@@ -17,8 +16,7 @@ createChart(data, options, element)
     {title: "january", value: [12, 7, 14]},
   ```
 2. **options**: an array of different objects
-  * `options[0]` will be...
-    `{start: x, end: y, increment: z}`
+  * `options[0]` will be... `{start: x, end: y, increment: z}`
   
   * `options[1]` will be...
   ```javascript
@@ -29,7 +27,7 @@ createChart(data, options, element)
       rotate: false
     }
   ```
-  set `rotate` to **true** or **false** to rotate the xTitles by 45º to accomadate long words
+  set `rotate` to **true** to rotate the labels below each bar by 45º to accomadate long words
 
   * `options[2]` will be...
     ```javascript
