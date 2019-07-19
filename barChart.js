@@ -50,17 +50,17 @@ function drawBarChart(data, options, element) {
 
   //adding title elements
   var mainTitle = $(makeEl("div", "main-title"));
-  mainTitle.text(options[1].title)
+  mainTitle.text(options.mainTitle)
             .appendTo(container);
 
   var yTitle = $(makeEl("div", "yTitle"));
   yTitle.appendTo(container)
         .append(makeEl("div"));
-  $(element + " .yTitle > div:last").text(options[1].yTitle);
+  $(element + " .yTitle > div:last").text(options.yTitle);
 
   var xTitle = $(makeEl("div", "xTitle"));
   xTitle.appendTo(container)
-        .text(options[1].xTitle);
+        .text(options.xTitle);
 
   //convert data points into percentages in order to use as heights
   //store the percentages into an array scaledValues
@@ -68,12 +68,12 @@ function drawBarChart(data, options, element) {
   for (let i = 0; i < data.length; i++) {
     if (typeof data[i].value === "object") {
       let subConverts = data[i].value.map(function(x) {
-        let converted  = ((x - options[0].start) / (options[0].end - options[0].start) * 100).toFixed(2) + "%";
+        let converted  = ((x - options.scale[0]) / (options.scale[1] - options.scale[0]) * 100).toFixed(2) + "%";
         return converted;
       });
       scaledValues.push(subConverts);
     } else {
-      let converted = ((data[i].value - options[0].start) / (options[0].end - options[0].start) * 100).toFixed(2) + "%";
+      let converted = ((data[i].value - options.scale[0]) / (options.scale[1] - options.scale[0]) * 100).toFixed(2) + "%";
       scaledValues.push(converted);
     }
   }
@@ -83,7 +83,7 @@ function drawBarChart(data, options, element) {
   //using getScale() and createYaxis()
   let yAxis = $(makeEl("div", "yAxis"));
   yAxis.prependTo(chart);
-  let yAxisScale = getScale(options[0].start, options[0].end, options[0].increment);
+  let yAxisScale = getScale(options.scale[0], options.scale[1], options.scale[2]);
   for (let i = 0; i < yAxisScale.length; i++) {
     createYAxis(yAxis, [element, ".yAxis"], yAxisScale[i]);
   } 
@@ -136,11 +136,11 @@ function drawBarChart(data, options, element) {
 
   //create one bar for every data point
   for (let i = 0; i < data.length; i++) {
-    createBar([scaledValues[i], data[i].value, data[i].title], [options[2].barColor, options[2].xValuePos, options[2].padding]);
+    createBar([scaledValues[i], data[i].value, data[i].title], [options.barColor, options.positionValues, options.padding]);
   }
 
       //check whether or not to create a legend
-  if (typeof options[2].barColor === "object" ) {
+  if (typeof options.barColor === "object" ) {
     let legend = $(makeEl("div", "legend"));
     legend.appendTo(chart);
 
@@ -162,20 +162,19 @@ function drawBarChart(data, options, element) {
     {title: "summer", value: [4, 16, 1]},
     {title: "autumn", value: [14, 4, 13]}
               ],
-              [
-                {start: 0, end: 35, increment: 5},
-                {
-                  title: "Items Purchased",
-                  yTitle: "amount",
-                  xTitle: "season"
-                },
-                {
-                  barColor: [
-                    ["pants", "blue"],
-                    ["shorts", "red"],
-                    ["coats", "gray"]
-                  ],
-                  xValuePos: "center",
-                  padding: "20px"
-                }
-              ], ".new-chart");
+              {
+                scale: [0, 35, 5],
+                width: "500px",
+                height: "400px",
+                mainTitle: "Items Purchased",
+                xTitle: "season",
+                yTitle: "amount",
+                positionValues: "center", //(replaces xValuePos)
+                labelColor: "red", //color of labels along x yAxis
+                barColor: [
+                  ["pants", "blue"],
+                  ["shorts", "red"],
+                  ["coats", "gray"]                        
+                 ],
+                padding: "15px"
+              }, ".new-chart");
