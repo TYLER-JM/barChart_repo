@@ -164,13 +164,13 @@ function drawBarChart(data, options, element) {
               ],
               {
                 scale: [0, 35, 5],
-                width: "500px",
-                height: "400px",
-                mainTitle: "Items Purchased",
+                width: "500px", //to come
+                height: "400px", //to come
+                mainTitle: "Items Purchased", // [array with size + color]
                 xTitle: "season",
                 yTitle: "amount",
-                positionValues: "center", //(replaces xValuePos)
-                labelColor: "red", //color of labels along x yAxis
+                positionValues: "center",
+                labelColor: "red", //to come
                 barColor: [
                   ["pants", "blue"],
                   ["shorts", "red"],
