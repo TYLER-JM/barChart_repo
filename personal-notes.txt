@@ -78,3 +78,4 @@ MUST ADD within function:
       barColor: ["red", "blue", "green", "gray"]
 
     -will need to update conditional statement in createBar()
+    -if (typeof dataArr[1][0] === "object")
