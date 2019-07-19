@@ -78,14 +78,16 @@ function drawBarChart(data, options, element) {
     }
   }
   console.log("data heights converted to: " + scaledValues);
-  
+
+  //creating the markers along the yAxis
+  //using getScale() and createYaxis()
   let yAxis = $(makeEl("div", "yAxis"));
   yAxis.prependTo(chart);
   let yAxisScale = getScale(options[0].start, options[0].end, options[0].increment);
-
-   for (let i = 0; i < yAxisScale.length; i++) {
+  for (let i = 0; i < yAxisScale.length; i++) {
     createYAxis(yAxis, [element, ".yAxis"], yAxisScale[i]);
   } 
+
 
   /* This function creates one bar, its arguments are...
    * dataArr - an array containing the string used to set the height of the bar (i.e. '97%'),
@@ -137,14 +139,6 @@ function drawBarChart(data, options, element) {
     createBar([scaledValues[i], data[i].value, data[i].title], [options[2].barColor, options[2].xValuePos, options[2].padding]);
   }
 
-    //rotate xValue titles if required
-    if(options[1].rotate) {
-    $(element + " .xValues").css({
-      "transform" : "rotate(45deg)",
-      "transform-origin" : "10px 20px"
-    })
-  }
-
       //check whether or not to create a legend
   if (typeof options[2].barColor === "object" ) {
     let legend = $(makeEl("div", "legend"));
@@ -173,8 +167,7 @@ function drawBarChart(data, options, element) {
                 {
                   title: "Items Purchased",
                   yTitle: "amount",
-                  xTitle: "season",
-                  rotate: false
+                  xTitle: "season"
                 },
                 {
                   barColor: [
@@ -183,7 +176,6 @@ function drawBarChart(data, options, element) {
                     ["coats", "gray"]
                   ],
                   xValuePos: "center",
-                  
                   padding: "20px"
                 }
               ], ".new-chart");
