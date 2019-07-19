@@ -78,4 +78,10 @@ MUST ADD within function:
       barColor: ["red", "blue", "green", "gray"]
 
     -will need to update conditional statement in createBar()
-    -if (typeof dataArr[1][0] === "object")
+  
+
+    -in invocation of createBar(dataArr, visArr)
+    must change: options.barColor  => options.barColor[i]
+    -in all cases barColor[i] will be an array
+    -in SOME cases barColor[i] will be a 2D array, 
+    check with: if (typeof dataArr[1][0] === "object")
