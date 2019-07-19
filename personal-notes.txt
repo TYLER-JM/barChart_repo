@@ -73,3 +73,8 @@ MUST ADD within function:
 
   -BARCOLOR RETHINK! each bar should be its own color
     -barColor should take an array either way
+    -one value per bar
+
+      barColor: ["red", "blue", "green", "gray"]
+
+    -will need to update conditional statement in createBar()
