@@ -12,11 +12,10 @@
     <div class="new-chart"></div>
     <script type="text/javascript" src="barChart.js"></script>
     <script type="text/javascript">
-      // $(function() {
                 drawBarChart([
-          {title: "Cars", value: [7, 8]},
-          {title: "Trucks", value: [9, 10]},
-          {title: "Dogs", value: [2, 3]}
+          {title: "Cars", value: 8},
+          {title: "Trucks", value: 10},
+          {title: "Dogs", value: 3}
         ],
         {
           scale: [0, 20, 5],
@@ -26,12 +25,11 @@
           xTitle: "Type",
           yTitle: "Amount",
           positionValues: "center",
-          labelColor: "blue",
-          barColor: [["men", "gray"], ["women", "red"]],
+          labelColor: "black",
+          barColor: "rgb(45, 196, 238)",
           padding: "20px"
         }, ".new-chart");
 
-      // }); //end ready
     </script>
   </body>
 </html>
