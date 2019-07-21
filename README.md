@@ -9,7 +9,7 @@ drawBarChart(data, options, element)
   ]
   ```
 
-  -if including stacked bars, **data.value** will be an array of numbers, each one representing the value
+  -if including stacked bars, `data.value` will be an array of numbers, each one representing the value
   of one of the "sub-catagories", like this...
 
   ```javascript
@@ -27,7 +27,7 @@ drawBarChart(data, options, element)
     yTitle: ["the y-axis Title", "12px", "red"],
     positionValues: "start",
     labelColor: "red",
-    barColor: "rgba(100, 200, 100, 0.5)"
+    barColor: ["#336bff", "#6690ff", "#99b5ff"],
     padding: "15px";
   }
 ```
@@ -39,7 +39,7 @@ drawBarChart(data, options, element)
     - the desired color. Any syntax for setting color should work
   * `positionValues:` should be set to something that the css rule `align-items:` can take, i.e... `start`, `center`, or `end`. It will position the values displayed inside the bar at either the top, middle, or bottom of the bar.
   * `label color:` will set the color of the labels displayed beneath each bar.
-  * `barColor:` will take a single string to set the color of the bars, or a 2D array to accomedate multiple values being represented in each bar. like this:
+  * `barColor:` will either be an array of colors in the form of strings, each one corresponding to the object at the same index of the **data** parameter. Or it will take a 2-D array, each nested array will correspond to the element at the same index inside of each `data.value` array.
   ```javascript
     barColor: [
                 ["pants", "blue"],
