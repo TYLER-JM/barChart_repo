@@ -41,6 +41,67 @@ function createYAxis(elem, selectors, arr) {
                                        .text(arr[2]); 
 } 
 
+/* This function will take as arguments:
+ * a 2D array (which will be options.barColor),
+ * options.positionValues, options.padding
+ * scaledValues[i], data[i].value, and data[i].title
+ */
+function createStack(dataArr, visArr) {
+  let outer = $(makeEl("div", "outer"));
+
+  //newly added to get titles...moved
+  let xValues = $(makeEl("div", "xValues"));
+  outer.append(xValues);
+  xValues.html(dataArr[2]); 
+  //...above, newly added
+
+  outer.appendTo(chart);
+  outer.css("padding-right", visArr[2]);
+
+  let stack = $(makeEl("div", "stack"));
+  outer.prepend(stack);
+  for (let i = 0; i < dataArr[0].length; i++) {
+    let inner = $(makeEl("div", "inner"));
+    stack.append(inner);
+    inner.css({
+              "height" : dataArr[0][i],
+              "background-color" : visArr[0][i][1],
+              "align-items" : visArr[1],
+              "color" : "black"
+            })
+          .text(dataArr[1][i]);
+  }
+} //end createStack
+
+/* This function will take as arguments:
+ * a single value (as options.barColor[i]),
+ * options.positionValues, options.padding
+ * scaledValues[i], data[i].value, and data[i].title
+ */
+function createSingle(dataArr, visArr) {
+  let outer = $(makeEl("div", "outer"));
+
+  //newly added to get titles...moved
+  let xValues = $(makeEl("div", "xValues"));
+  outer.append(xValues);
+  xValues.html(dataArr[2]); 
+  //...above, newly added
+
+  outer.appendTo(chart);
+  outer.css("padding-right", visArr[2]);
+
+  let inner = $(makeEl("div", "inner"));
+  outer.prepend(inner);
+  inner.css({
+            "height" : dataArr[0],
+            "background-color" : visArr[0],
+            "align-items" : visArr[1],
+            "color" : "black",
+          })
+        .text(dataArr[1]);
+
+} //end createSingle
+
 function drawBarChart(data, options, element) {
 
   var container = $(makeEl("div", "chart-container"));
@@ -144,7 +205,7 @@ function drawBarChart(data, options, element) {
     let legend = $(makeEl("div", "legend"));
     legend.appendTo(chart);
 
-    options[2].barColor.forEach(element => {
+    options.barColor.forEach(element => {
       let swatch = $(makeEl("div", "swatch"));
       let subCatTitle = $(makeEl("div", "subCatTitle"));
       swatch.css("background-color", element[1]);
@@ -156,25 +217,43 @@ function drawBarChart(data, options, element) {
 
 }; //end drawBarChart()
 
-  drawBarChart([
-    {title: "winter", value: [12, 2, 10]},
-    {title: "spring", value: [3, 13, 4]},
-    {title: "summer", value: [4, 16, 1]},
-    {title: "autumn", value: [14, 4, 13]}
-              ],
-              {
-                scale: [0, 35, 5],
-                width: "500px", //to come
-                height: "400px", //to come
-                mainTitle: "Items Purchased", // [array with size + color]
-                xTitle: "season",
-                yTitle: "amount",
-                positionValues: "center",
-                labelColor: "red", //to come
-                barColor: [
-                  ["pants", "blue"],
-                  ["shorts", "red"],
-                  ["coats", "gray"]                        
-                 ],
-                padding: "15px"
-              }, ".new-chart");
+drawBarChart([
+  {title: "winter", value: [12, 2, 10]},
+  {title: "spring", value: [3, 13, 4]},
+  {title: "summer", value: [4, 16, 1]},
+  {title: "autumn", value: [14, 4, 13]}
+            ],
+            {
+              scale: [0, 35, 5],
+              width: "500px", //to come
+              height: "400px", //to come
+              mainTitle: "Items Purchased", // to come: [array with size + color]
+              xTitle: "season",
+              yTitle: "amount",
+              positionValues: "center",
+              labelColor: "red", //to come
+              barColor: [
+                ["pants", "blue"],
+                ["shorts", "red"],
+                ["coats", "gray"]                        
+                ],
+              padding: "15px"
+            }, ".new-chart");
+
+drawBarChart([
+  {title: "Dave", value: 21},
+  {title: "Amin", value: 32},
+  {title: "Sarah", value: 25}
+],
+{
+  scale: [0, 40, 10],
+  width: "500px", //to come
+  height: "400px", //to come
+  mainTitle: "Employees", // to come: [array with size + color]
+  xTitle: "Names",
+  yTitle: "Age",
+  positionValues: "end",
+  labelColor: "red", //to come
+  barColor: "pink",
+  padding: "20px"
+}, ".new-chart");
