@@ -42,20 +42,18 @@ function createYAxis(elem, selectors, arr) {
 } 
 
 /* This function will take as arguments:
- * a 2D array (which will be options.barColor),
- * options.positionValues, options.padding
- * scaledValues[i], data[i].value, and data[i].title
+ * [scaledValues[i], data[i].value, and data[i].title],
+ * [options.barColor, options.positionValues, options.padding],
+ * chart (where outer will be appended to)
  */
-function createStack(dataArr, visArr) {
+function createStack(dataArr, visArr, elem) {
   let outer = $(makeEl("div", "outer"));
 
-  //newly added to get titles...moved
   let xValues = $(makeEl("div", "xValues"));
   outer.append(xValues);
   xValues.html(dataArr[2]); 
-  //...above, newly added
 
-  outer.appendTo(chart);
+  outer.appendTo(elem);
   outer.css("padding-right", visArr[2]);
 
   let stack = $(makeEl("div", "stack"));
@@ -71,23 +69,21 @@ function createStack(dataArr, visArr) {
             })
           .text(dataArr[1][i]);
   }
-} //end createStack
+} //end createStack()
 
 /* This function will take as arguments:
- * a single value (as options.barColor[i]),
- * options.positionValues, options.padding
- * scaledValues[i], data[i].value, and data[i].title
+ * [scaledValues[i], data[i].value, and data[i].title],
+ * [options.barColor[i], options.positionValues, options.padding],
+ * chart (where outer will be appended to)
  */
-function createSingle(dataArr, visArr) {
+function createSingle(dataArr, visArr, elem) {
   let outer = $(makeEl("div", "outer"));
 
-  //newly added to get titles...moved
   let xValues = $(makeEl("div", "xValues"));
   outer.append(xValues);
   xValues.html(dataArr[2]); 
-  //...above, newly added
 
-  outer.appendTo(chart);
+  outer.appendTo(elem);
   outer.css("padding-right", visArr[2]);
 
   let inner = $(makeEl("div", "inner"));
@@ -100,7 +96,7 @@ function createSingle(dataArr, visArr) {
           })
         .text(dataArr[1]);
 
-} //end createSingle
+} //end createSingle()
 
 function drawBarChart(data, options, element) {
 
@@ -149,59 +145,21 @@ function drawBarChart(data, options, element) {
     createYAxis(yAxis, [element, ".yAxis"], yAxisScale[i]);
   } 
 
-
-  /* This function creates one bar, its arguments are...
-   * dataArr - an array containing the string used to set the height of the bar (i.e. '97%'),
-   * the value to display inside the bar, and the label to displey beneath the bar
-   */
-  let createBar = function(dataArr, visArr) {
-    let outer = $(makeEl("div", "outer"));
-
-    //newly added to get titles...moved
-    let xValues = $(makeEl("div", "xValues"));
-    outer.append(xValues);
-    xValues.html(dataArr[2]);
-    //...above, newly added
-
-    outer.appendTo(chart);
-    outer.css("padding-right", visArr[2]);
-    
-
-    if (typeof dataArr[1] === "object") {
-      let stack = $(makeEl("div", "stack"));
-      outer.prepend(stack);
-      for (let i = 0; i < dataArr[0].length; i++) {
-        let inner = $(makeEl("div", "inner"));
-        stack.append(inner);
-        inner.css({
-                  "height" : dataArr[0][i],
-                  "background-color" : visArr[0][i][1],
-                  "align-items" : visArr[1],
-                  "color" : "black"
-                })
-              .text(dataArr[1][i]);
-      }
-
-    } else {
-      let inner = $(makeEl("div", "inner"));
-      outer.prepend(inner);
-      inner.css({
-                "height" : dataArr[0],
-                "background-color" : visArr[0],
-                "align-items" : visArr[1],
-                "color" : "black",
-              })
-            .text(dataArr[1]);
-    }
-  }; //end createBar()
-
-  //create one bar for every data point
+//create a bar for each object in the data parameter
   for (let i = 0; i < data.length; i++) {
-    createBar([scaledValues[i], data[i].value, data[i].title], [options.barColor, options.positionValues, options.padding]);
+    if (typeof data[i].value === "object") {
+      createStack([scaledValues[i], data[i].value, data[i].title],
+                   [options.barColor, options.positionValues, options.padding],
+                   chart);
+    } else {
+      createSingle([scaledValues[i], data[i].value, data[i].title],
+        [options.barColor[i], options.positionValues, options.padding],
+        chart);
+    }
   }
 
       //check whether or not to create a legend
-  if (typeof options.barColor === "object" ) {
+  if (typeof options.barColor[0] === "object" ) {
     let legend = $(makeEl("div", "legend"));
     legend.appendTo(chart);
 
@@ -254,6 +212,6 @@ drawBarChart([
   yTitle: "Age",
   positionValues: "end",
   labelColor: "red", //to come
-  barColor: "pink",
+  barColor: ["pink", "salmon", "red"],
   padding: "20px"
 }, ".new-chart");
