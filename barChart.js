@@ -107,17 +107,29 @@ function drawBarChart(data, options, element) {
 
   //adding title elements
   var mainTitle = $(makeEl("div", "main-title"));
-  mainTitle.text(options.mainTitle)
-            .appendTo(container);
+  mainTitle.text(options.mainTitle[0])
+            .appendTo(container)
+            .css({
+              "font-size" : options.mainTitle[1],
+              "color" : options.mainTitle[2]
+            });
 
   var yTitle = $(makeEl("div", "yTitle"));
   yTitle.appendTo(container)
         .append(makeEl("div"));
-  $(element + " .yTitle > div:last").text(options.yTitle);
+  $(element + " .yTitle > div:last").text(options.yTitle[0])
+                                    .css({
+                                      "font-size" : options.yTitle[1],
+                                      "color" : options.yTitle[2]
+                                    });
 
   var xTitle = $(makeEl("div", "xTitle"));
   xTitle.appendTo(container)
-        .text(options.xTitle);
+        .text(options.xTitle[0])
+        .css({
+          "font-size" : options.xTitle[1],
+          "color" : options.xTitle[2]
+        });
 
   //convert data points into percentages in order to use as heights
   //store the percentages into an array scaledValues
@@ -185,9 +197,9 @@ drawBarChart([
               scale: [0, 35, 5],
               width: "500px", //to come
               height: "400px", //to come
-              mainTitle: "Items Purchased", // to come: [array with size + color]
-              xTitle: "season",
-              yTitle: "amount",
+              mainTitle: ["Items Purchased", "20px", "red"], // to come: [array with size + color]
+              xTitle: ["season", "16px", "black"],
+              yTitle: ["amount", "16px", "green"],
               positionValues: "center",
               labelColor: "red", //to come
               barColor: [
@@ -207,9 +219,9 @@ drawBarChart([
   scale: [0, 40, 10],
   width: "500px", //to come
   height: "400px", //to come
-  mainTitle: "Employees", // to come: [array with size + color]
-  xTitle: "Names",
-  yTitle: "Age",
+  mainTitle: ["Employees", "16px", "blue"], // to come: [array with size + color]
+  xTitle: ["Names", "14px", "#60484c"],
+  yTitle: ["Age", "14px", "#60484c"],
   positionValues: "end",
   labelColor: "red", //to come
   barColor: ["pink", "salmon", "red"],
