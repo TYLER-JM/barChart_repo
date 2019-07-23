@@ -9,7 +9,8 @@
 }
 .main-title {
   font-family: sans-serif;
-  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: underline;
   grid-area: title;
   text-align: center;
   padding-bottom: 15px;
