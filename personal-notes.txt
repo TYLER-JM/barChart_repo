@@ -56,48 +56,10 @@ july 17
                               ["coats", "gray"]                        
                              ]
 
-MUST CHANGE within function:
-  -title-making section refers to options[1]
-
-  -calling getScale() refers to options[0]
-  -calling createBar() refers to options[2]
-
-  -conditional rotation statement refers to options[1]
-
-  -conditional legend statement refers to options[2]
 
 MUST ADD within function:
   -cutomize titles' size and color
   -customize chart height/width
   -labels' color (along x axis)
 
-  -BARCOLOR RETHINK! each bar should be its own color
-    -barColor should take an array either way
-    -one value per bar
 
-      barColor: ["red", "blue", "green", "gray"]
-
-    -will need to update conditional statement in createBar()
-  
-
-    -in invocation of createBar(dataArr, visArr)
-    must change: options.barColor  => options.barColor[i]
-        -legend conditional: if (typeof options.barColor[0] === "object")
-        -conditional statement within createBar(): if (typeof visArr[0] === "object")
-    -in all cases barColor[i] will be an array
-    -in SOME cases barColor[i] will be a 2D array, 
-    check with: if (typeof dataArr[1][0] === "object")
-
-  Looks like... 
-  createBar() should be divided into at least two smaller functions
-  -one to create a stacked bar, one to create a bar with a single value.
-  -b/c a stack will need all of the sub-arrays inside barColor,
-   but a single value bar will only need barColor[i]
-  -invocation would be something like...
-
-for (data.length)
-  if (typeof data[i].value === "object") {
-    createStack()
-  } else {
-    createBar()
-  }
