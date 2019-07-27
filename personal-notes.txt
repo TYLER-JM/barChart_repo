@@ -58,7 +58,8 @@ july 17
 
 
 MUST ADD within function:
-  -cutomize titles' size and color
+  [-]cutomize titles' size and color
+    -update README.md
   -customize chart height/width
   -labels' color (along x axis)
 
