@@ -7,7 +7,7 @@ function makeEl(type, className) {
     string += " class='" + className + "'></" + type + ">";
   }
   return string;
-};
+}
 
 /*this function returns a 2D array
  * each sub-array contains: two strings used for positioning the markers
@@ -15,7 +15,7 @@ function makeEl(type, className) {
  * the number to be displayed beside the marker. In that order
  */
 function getScale(s, e, inc) {
-  arrOut = [];
+  let arrOut = [];
   for (let i = s, j = 0; i <= e; i += inc, j++) {
     let val = 100 / ((e-s)/inc);
     let x = (val*j).toFixed(2) + "%";
@@ -185,7 +185,7 @@ function drawBarChart(data, options, element) {
     
   }
 
-}; //end drawBarChart()
+} //end drawBarChart()
 
 drawBarChart([
   {title: "winter", value: [12, 2, 10]},
