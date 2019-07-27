@@ -103,7 +103,12 @@ function drawBarChart(data, options, element) {
   var container = $(makeEl("div", "chart-container"));
   var chart = $(makeEl("div", "chart"));
 
-  container.appendTo(element).append(chart);
+  container.appendTo(element)
+           .append(chart)
+           .css({
+             "height" : options.height,
+             "width" : options.width
+           });
 
   //adding title elements
   var mainTitle = $(makeEl("div", "main-title"));
@@ -195,9 +200,9 @@ drawBarChart([
             ],
             {
               scale: [0, 35, 5],
-              width: "500px", //to come
-              height: "400px", //to come
-              mainTitle: ["Items Purchased", "20px", "red"], // to come: [array with size + color]
+              width: "900px", //to come
+              height: "700px", //to come
+              mainTitle: ["Items Purchased", "20px", "red"],
               xTitle: ["season", "16px", "black"],
               yTitle: ["amount", "16px", "green"],
               positionValues: "center",
@@ -219,7 +224,7 @@ drawBarChart([
   scale: [0, 40, 10],
   width: "500px", //to come
   height: "400px", //to come
-  mainTitle: ["Employees", "16px", "blue"], // to come: [array with size + color]
+  mainTitle: ["Employees", "16px", "blue"],
   xTitle: ["Names", "14px", "#60484c"],
   yTitle: ["Age", "14px", "#60484c"],
   positionValues: "end",
