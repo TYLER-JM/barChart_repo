@@ -1,0 +1,25 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "lint for bar chart project",
+  "main": "barChart.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TYLER-JM/barChart_repo.git"
+  },
+  "keywords": [
+    "eslint"
+  ],
+  "author": "TYLER-JM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TYLER-JM/barChart_repo/issues"
+  },
+  "homepage": "https://github.com/TYLER-JM/barChart_repo#readme",
+  "devDependencies": {
+    "eslint": "^6.1.0"
+  }
+}
