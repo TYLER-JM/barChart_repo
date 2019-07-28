@@ -16,6 +16,7 @@ drawBarChart(data, options, element)
     {title: "Clothes", value: [14, 10, 7]},
   ```
   ...each element in the `data.value` array will correspond to a nested array in the `barColor` array found in the **options** parameter, where the **title** and **color** of each *sub-catagory* can be set.
+  
 2. **options**: an object with all of the customizable elements of the bar chart. It will look something like this...
 
 ```javascript
