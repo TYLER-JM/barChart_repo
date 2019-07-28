@@ -38,8 +38,8 @@ drawBarChart(data, options, element)
     - the desired size
     - the desired color. Any syntax for setting color should work
   * `positionValues:` should be set to something that the css rule `align-items:` can take, i.e... `start`, `center`, or `end`. It will position the values displayed inside the bar at either the top, middle, or bottom of the bar.
-  * `label color:` will set the color of the labels displayed beneath each bar.
-  * `barColor:` will be an array of colors in the form of strings, each one corresponding to the object at the same index of the **data** parameter. If using stacked values `barColor` will take a 2-D array, each nested array will correspond to the element at the same index inside of each `data.value` array: the array at `barColor[0]` will refer to the value at `data[i].value[0]`.
+  * `labelColor:` will set the color of the labels displayed beneath each bar.
+  * `barColor:` will be an array of colors in the form of strings, each one corresponding to the object at the same index of the **data** parameter. If using stacked values `barColor` will take a 2-D array, each nested array will include a **title** and **color** that will correspond to the value at the same index inside of each `data.value` array: in the following example the array at `barColor[0]` will refer to the value at `data[i].value[0]`.
   ```javascript
     barColor: [
                 ["pants", "blue"],
