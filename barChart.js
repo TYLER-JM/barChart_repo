@@ -43,7 +43,7 @@ function createYAxis(elem, selectors, arr) {
 
 /* This function will take as arguments:
  * [scaledValues[i], data[i].value, and data[i].title],
- * [options.barColor, options.positionValues, options.padding],
+ * [options.barColor, *options.labelColor*, options.positionValues, options.padding],
  * chart (where outer will be appended to)
  */
 function createStack(dataArr, visArr, elem) {
@@ -51,10 +51,11 @@ function createStack(dataArr, visArr, elem) {
 
   let xValues = $(makeEl("div", "xValues"));
   outer.append(xValues);
-  xValues.html(dataArr[2]); 
+  xValues.html(dataArr[2])
+         .css("color", visArr[1]); 
 
   outer.appendTo(elem);
-  outer.css("padding-right", visArr[2]);
+  outer.css("padding-right", visArr[3]);
 
   let stack = $(makeEl("div", "stack"));
   outer.prepend(stack);
@@ -64,7 +65,7 @@ function createStack(dataArr, visArr, elem) {
     inner.css({
               "height" : dataArr[0][i],
               "background-color" : visArr[0][i][1],
-              "align-items" : visArr[1],
+              "align-items" : visArr[2],
               "color" : "black"
             })
           .text(dataArr[1][i]);
@@ -73,7 +74,7 @@ function createStack(dataArr, visArr, elem) {
 
 /* This function will take as arguments:
  * [scaledValues[i], data[i].value, and data[i].title],
- * [options.barColor[i], options.positionValues, options.padding],
+ * [options.barColor[i], *options.labelColor*, options.positionValues, options.padding],
  * chart (where outer will be appended to)
  */
 function createSingle(dataArr, visArr, elem) {
@@ -81,17 +82,18 @@ function createSingle(dataArr, visArr, elem) {
 
   let xValues = $(makeEl("div", "xValues"));
   outer.append(xValues);
-  xValues.html(dataArr[2]); 
+  xValues.html(dataArr[2])
+         .css("color", visArr[1]); 
 
   outer.appendTo(elem);
-  outer.css("padding-right", visArr[2]);
+  outer.css("padding-right", visArr[3]);
 
   let inner = $(makeEl("div", "inner"));
   outer.prepend(inner);
   inner.css({
             "height" : dataArr[0],
             "background-color" : visArr[0],
-            "align-items" : visArr[1],
+            "align-items" : visArr[2],
             "color" : "black",
           })
         .text(dataArr[1]);
@@ -166,11 +168,11 @@ function drawBarChart(data, options, element) {
   for (let i = 0; i < data.length; i++) {
     if (typeof data[i].value === "object") {
       createStack([scaledValues[i], data[i].value, data[i].title],
-                   [options.barColor, options.positionValues, options.padding],
+                   [options.barColor, options.labelColor, options.positionValues, options.padding],
                    chart);
     } else {
       createSingle([scaledValues[i], data[i].value, data[i].title],
-        [options.barColor[i], options.positionValues, options.padding],
+        [options.barColor[i], options.labelColor, options.positionValues, options.padding],
         chart);
     }
   }
@@ -200,13 +202,13 @@ drawBarChart([
             ],
             {
               scale: [0, 35, 5],
-              width: "900px", //to come
-              height: "700px", //to come
+              width: "900px",
+              height: "700px",
               mainTitle: ["Items Purchased", "20px", "red"],
               xTitle: ["season", "16px", "black"],
               yTitle: ["amount", "16px", "green"],
               positionValues: "center",
-              labelColor: "red", //to come
+              labelColor: "red",
               barColor: [
                 ["pants", "blue"],
                 ["shorts", "red"],
@@ -222,13 +224,13 @@ drawBarChart([
 ],
 {
   scale: [0, 40, 10],
-  width: "500px", //to come
-  height: "400px", //to come
+  width: "500px",
+  height: "400px",
   mainTitle: ["Employees", "16px", "blue"],
   xTitle: ["Names", "14px", "#60484c"],
   yTitle: ["Age", "14px", "#60484c"],
   positionValues: "end",
-  labelColor: "red", //to come
+  labelColor: "green",
   barColor: ["pink", "salmon", "red"],
   padding: "20px"
 }, ".new-chart");
