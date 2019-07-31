@@ -13,21 +13,38 @@
     <script type="text/javascript" src="barChart.js"></script>
     <script type="text/javascript">
                 drawBarChart([
-          {title: "Cars", value: 8},
-          {title: "Trucks", value: 10},
-          {title: "Dogs", value: 3}
-        ],
+      {title: "Howick", value: 3852},
+      {title: "Ashfield\xa0Colborne\xa0Wawanosh", value: 5409},
+      {title: "Bluewater", value: 7120},
+      {title: "Central\xa0Huron", value: 7806},
+      {title: "Goderich", value: 7628},
+      {title: "Huron\xa0East", value: 9264},
+      {title: "Morris\xa0Turnberry", value: 3413},
+      {title: "North\xa0Huron", value: 4884},
+      {title: "South\xa0Huron", value: 9945}
+     ],
         {
-          scale: [0, 10, 2],
-          width: "500px",
+          scale: [0, 10000, 1000],
+          width: "800px",
           height: "500px",
-          mainTitle: ["Vehicles", "18px", "gray"],
-          xTitle: ["type", "14px", "#ff6133"],
-          yTitle: ["amount", "14px", "#c733ff"],
-          positionValues: "center",
-          labelColor: "orange",
-          barColor: ["#336bff", "#6690ff", "#99b5ff"],
-          padding: "20px"
+          mainTitle: ["Townships of Huron County", "18px", "gray"],
+          xTitle: ["Township name", "14px", "#6133ff"],
+          yTitle: ["Population", "14px", "#6133ff"],
+          positionValues: "end",
+          labelColor: "#ff6133",
+          barColor: [
+            "#336bff",
+            "#6690ff",
+            "#99b5ff",
+            "#6c7a9f",
+            "#5975bf",
+            "#b3c7ff",
+            "#ccdaff",
+            "#e5ecff",
+            "#6378af"
+                    ],
+          padding: "20px",
+          rotate: true
         }, ".new-chart");
 
     </script>
