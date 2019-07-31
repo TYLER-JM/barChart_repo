@@ -100,6 +100,14 @@ function createSingle(dataArr, visArr, elem) {
 
 } //end createSingle()
 
+function rotateLabels(select) {
+  $(select).css({
+    "transform" : "rotate(45deg)",
+    "transform-origin" : "0px 20px"
+  });
+  $(".xTitle").css("padding-top", "40px");
+}
+
 function drawBarChart(data, options, element) {
 
   var container = $(makeEl("div", "chart-container"));
@@ -192,6 +200,10 @@ function drawBarChart(data, options, element) {
     
   }
 
+  if (options.rotate) {
+    rotateLabels(element + " .xValues");
+  }
+
 } //end drawBarChart()
 
 drawBarChart([
@@ -214,7 +226,8 @@ drawBarChart([
                 ["shorts", "red"],
                 ["coats", "gray"]                        
                 ],
-              padding: "15px"
+              padding: "15px",
+              rotate: false
             }, ".new-chart");
 
 drawBarChart([
@@ -232,5 +245,6 @@ drawBarChart([
   positionValues: "end",
   labelColor: "green",
   barColor: ["pink", "salmon", "red"],
-  padding: "20px"
+  padding: "20px",
+  rotate: true
 }, ".new-chart");
