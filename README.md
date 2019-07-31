@@ -30,7 +30,8 @@ drawBarChart(data, options, element)
     positionValues: "start",
     labelColor: "red",
     barColor: ["#336bff", "#6690ff", "#99b5ff"],
-    padding: "15px";
+    padding: "15px",
+    rotate: false
   }
 ```
   * `scale:` is an array containing the **start**, **end**, and **increment** that will determine how the y-axis is layed out.
@@ -50,5 +51,6 @@ drawBarChart(data, options, element)
               ]
   ```
   * `padding: ` sets the gap between each bar.
+  * `rotate: ` will rotate the labels applied to each bar in order to accomodate lengthy titles. simply set to `true` or `false`.
 
 3. **element:** should include a period for class, or hashtag for id: `".new-bar"` or `"#new-item"`
