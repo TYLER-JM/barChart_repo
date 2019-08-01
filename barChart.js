@@ -38,7 +38,7 @@ function createYAxis(elem, selectors, arr) {
     $(selectors[0] + " " + selectors[1] + " > div:last").css("bottom", arr[0]);
     elem.append(makeEl("div", "marker-value"));
     $(selectors[0] + " " + selectors[1] + " > div:last").css("bottom", arr[1])
-                                       .text(arr[2]); 
+                                       .text(arr[2].toLocaleString("us-EN")); 
 } 
 
 /* This function will take as arguments:
@@ -204,6 +204,25 @@ function drawBarChart(data, options, element) {
 } //end drawBarChart()
 
 drawBarChart([
+  {title: "Dave", value: 21},
+  {title: "Amin", value: 32},
+  {title: "Sarah", value: 25}
+],
+{
+  scale: [0, 40, 10],
+  width: "500px",
+  height: "400px",
+  mainTitle: ["Employees", "16px", "blue"],
+  xTitle: ["Names", "14px", "#60484c"],
+  yTitle: ["Age", "14px", "#60484c"],
+  positionValues: "end",
+  labelColor: "green",
+  barColor: ["pink", "salmon", "red"],
+  padding: "20px",
+  rotate: false
+}, ".chart-one");
+
+drawBarChart([
   {title: "winter", value: [12, 2, 10]},
   {title: "spring", value: [3, 13, 4]},
   {title: "summer", value: [4, 16, 1]},
@@ -225,23 +244,5 @@ drawBarChart([
                 ],
               padding: "15px",
               rotate: false
-            }, ".new-chart");
+            }, ".chart-two");
 
-drawBarChart([
-  {title: "Dave", value: 21},
-  {title: "Amin", value: 32},
-  {title: "Sarah", value: 25}
-],
-{
-  scale: [0, 40, 10],
-  width: "500px",
-  height: "400px",
-  mainTitle: ["Employees", "16px", "blue"],
-  xTitle: ["Names", "14px", "#60484c"],
-  yTitle: ["Age", "14px", "#60484c"],
-  positionValues: "end",
-  labelColor: "green",
-  barColor: ["pink", "salmon", "red"],
-  padding: "20px",
-  rotate: true
-}, ".next-chart");
