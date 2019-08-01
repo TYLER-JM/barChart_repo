@@ -29,6 +29,7 @@
   font-family: sans-serif;
   grid-area: 3/2/4/3;
   text-align: center;
+  padding-top: 0px;
 }
 .chart {
   height: max-content;
@@ -97,4 +98,11 @@
   height: 20px;
   width: 20px;
   margin-right: 5px;
+}
+.rotated {
+  transform: rotate(45deg);
+  transform-origin: 0px 20px;
+}
+.shifted {
+  padding-top: 40px;
 }
