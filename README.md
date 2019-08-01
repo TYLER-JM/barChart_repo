@@ -54,3 +54,5 @@ drawBarChart(data, options, element)
   * `rotate: ` will rotate the labels applied to each bar in order to accomodate lengthy titles. simply set to `true` or `false`.
 
 3. **element:** should include a period for class, or hashtag for id: `".new-bar"` or `"#new-item"`
+
+4. currently, to avoid some bugs, each chart should have its own parent container.
