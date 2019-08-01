@@ -100,12 +100,9 @@ function createSingle(dataArr, visArr, elem) {
 
 } //end createSingle()
 
-function rotateLabels(select) {
-  $(select).css({
-    "transform" : "rotate(45deg)",
-    "transform-origin" : "0px 20px"
-  });
-  $(".xTitle").css("padding-top", "40px");
+function rotateLabels(parent) {
+  $(parent + " .xValues").addClass("rotated");
+  $(parent + " .xTitle").addClass("shifted");
 }
 
 function drawBarChart(data, options, element) {
@@ -201,7 +198,7 @@ function drawBarChart(data, options, element) {
   }
 
   if (options.rotate) {
-    rotateLabels(element + " .xValues");
+    rotateLabels(element);
   }
 
 } //end drawBarChart()
@@ -247,4 +244,4 @@ drawBarChart([
   barColor: ["pink", "salmon", "red"],
   padding: "20px",
   rotate: true
-}, ".new-chart");
+}, ".next-chart");
