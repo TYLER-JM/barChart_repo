@@ -1,4 +1,6 @@
-drawBarChart(data, options, element) 
+# drawBarChart(data, options, element) 
+
+## function parameters
 
 1. **data**: an array of objects:
 
@@ -39,7 +41,8 @@ drawBarChart(data, options, element)
   * Each **Title** key contains an array with 3 strings: 
     - the title itself
     - the desired size
-    - the desired color. Any syntax for setting color should work
+    - the desired color
+
   * `positionValues:` should be set to something that the css rule `align-items:` can take, i.e... `start`, `center`, or `end`. It will position the values displayed inside the bar at either the top, middle, or bottom of the bar.
   * `labelColor:` will set the color of the labels displayed beneath each bar.
   * `barColor:` will be an array of colors in the form of strings, each one corresponding to the object at the same index of the **data** parameter. If using stacked values `barColor` will take a 2-D array, each nested array will include a **title** and **color** that will correspond to the value at the same index inside of each `data.value` array: in the following example the array at `barColor[0]` will refer to the value at `data[i].value[0]`.
@@ -55,4 +58,7 @@ drawBarChart(data, options, element)
 
 3. **element:** should include a period for class, or hashtag for id: `".new-bar"` or `"#new-item"`
 
-4. currently, to avoid some bugs, each chart should have its own parent container.
+## Known Bugs, and limitations
+
+* currently, to avoid some bugs, each chart should have its own parent container.
+* each element inside of the **title** arrays (mainTitle, xTitle, yTitle) in the **options** parameter should be present. If no title is prefered, include an empty array as the *value*, but do not remove the *key* entirely from the **options** object.
