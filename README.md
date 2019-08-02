@@ -62,3 +62,7 @@
 
 * currently, to avoid some bugs, each chart should have its own parent container.
 * each element inside of the **title** arrays (mainTitle, xTitle, yTitle) in the **options** parameter should be present. If no title is prefered, include an empty array as the *value*, but do not remove the *key* entirely from the **options** object.
+
+##Examples
+
+![Image of Bar Chart](../example-barChart.png)
