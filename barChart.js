@@ -1,4 +1,4 @@
-$(function() {
+
 
 
 //helper function to help create new elements
@@ -108,7 +108,7 @@ function rotateLabels(parent) {
   $(parent + " .xTitle").addClass("shifted");
 }
 
-function drawBarChart(data, options, element) {
+var drawBarChart = function(data, options, element) {
 
   var container = $(makeEl("div", "chart-container"));
   var chart = $(makeEl("div", "chart"));
@@ -206,48 +206,49 @@ function drawBarChart(data, options, element) {
 
 } //end drawBarChart()
 
-drawBarChart([
-  {title: "Dave", value: 21},
-  {title: "Amin", value: 32},
-  {title: "Sarah", value: 25}
-],
-{
-  scale: [0, 40, 10],
-  width: "500px",
-  height: "400px",
-  mainTitle: ["Employees", "16px", "blue"],
-  xTitle: ["Names", "14px", "#60484c"],
-  yTitle: ["Age", "14px", "#60484c"],
-  positionValues: "end",
-  labelColor: "green",
-  barColor: ["pink", "salmon", "red"],
-  padding: "20px",
-  rotate: false
-}, ".chart-one");
+$(function() {
+  drawBarChart([
+    {title: "Dave", value: 21},
+    {title: "Amin", value: 32},
+    {title: "Sarah", value: 25}
+  ],
+  {
+    scale: [0, 40, 10],
+    width: "500px",
+    height: "400px",
+    mainTitle: ["Employees", "16px", "blue"],
+    xTitle: ["Names", "14px", "#60484c"],
+    yTitle: ["Age", "14px", "#60484c"],
+    positionValues: "end",
+    labelColor: "green",
+    barColor: ["pink", "salmon", "red"],
+    padding: "20px",
+    rotate: false
+  }, ".chart-one");
 
-drawBarChart([
-  {title: "winter", value: [12, 2, 10]},
-  {title: "spring", value: [3, 13, 4]},
-  {title: "summer", value: [4, 16, 1]},
-  {title: "autumn", value: [14, 4, 13]}
-            ],
-            {
-              scale: [0, 35, 5],
-              width: "900px",
-              height: "700px",
-              mainTitle: ["Items Purchased", "20px", "red"],
-              xTitle: ["season", "16px", "black"],
-              yTitle: ["amount", "16px", "green"],
-              positionValues: "center",
-              labelColor: "red",
-              barColor: [
-                ["pants", "blue"],
-                ["shorts", "red"],
-                ["coats", "gray"]                        
-                ],
-              padding: "15px",
-              rotate: false
-            }, ".chart-two");
 
+  drawBarChart([
+    {title: "winter", value: [12, 2, 10]},
+    {title: "spring", value: [3, 13, 4]},
+    {title: "summer", value: [4, 16, 1]},
+    {title: "autumn", value: [14, 4, 13]}
+              ],
+              {
+                scale: [0, 35, 5],
+                width: "900px",
+                height: "700px",
+                mainTitle: ["Items Purchased", "20px", "red"],
+                xTitle: ["season", "16px", "black"],
+                yTitle: ["amount", "16px", "green"],
+                positionValues: "center",
+                labelColor: "red",
+                barColor: [
+                  ["pants", "blue"],
+                  ["shorts", "red"],
+                  ["coats", "gray"]                        
+                  ],
+                padding: "15px",
+                rotate: false
+              }, ".chart-two");
 
 }); //end ready
