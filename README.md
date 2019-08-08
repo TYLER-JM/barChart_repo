@@ -66,3 +66,7 @@
 ## Examples
 
 ![Image of Bar Chart](/example-barChart.png)
+
+## what does the future hold?
+
+* I would like to make it possible for numbers in the millions or billions to be displayed in a more readable way: 1.5M, not 1,500,000
