@@ -1,3 +1,7 @@
+$(function() {
+
+
+
 //helper function to help create new elements
 function makeEl(type, className) {
   let string = "<" + type;
@@ -246,3 +250,5 @@ drawBarChart([
               rotate: false
             }, ".chart-two");
 
+
+}); //end ready
