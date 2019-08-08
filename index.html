@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="barChart.js"></script>
     
   </head>
   <body>
@@ -13,10 +12,11 @@
     <div class="chart-one"></div>
     <div class="chart-two"></div>
     <div class="chart-three"></div>
-    
-    <script type="text/javascript">
-      //$(function() {
+    <script type="text/javascript" src="barChart.js"></script>
 
+    <script type="text/javascript">
+      $(function() {
+        
                 drawBarChart([
       {title: "Howick", value: 3852},
       {title: "Ashfield\xa0Colborne\xa0Wawanosh", value: 5409},
@@ -51,8 +51,8 @@
           padding: "20px",
           rotate: true
         }, ".chart-three");
-
-      //}); //end ready
+        
+      }); //end ready
     </script>
   </body>
 </html>
