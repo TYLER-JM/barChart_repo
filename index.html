@@ -52,6 +52,29 @@
           rotate: true
         }, ".chart-three");
         
+        drawBarChart([
+    {title: "winter", value: [12, 2, 10]},
+    {title: "spring", value: [3, 13, 4]},
+    {title: "summer", value: [4, 16, 1]},
+    {title: "autumn", value: [14, 4, 13]}
+              ],
+              {
+                scale: [0, 35, 5],
+                width: "900px",
+                height: "700px",
+                mainTitle: ["Items Purchased", "20px", "red"],
+                xTitle: ["season", "16px", "black"],
+                yTitle: ["amount", "16px", "green"],
+                positionValues: "center",
+                labelColor: "red",
+                barColor: [
+                  ["pants", "blue"],
+                  ["shorts", "red"],
+                  ["coats", "gray"]                        
+                  ],
+                padding: "15px",
+                rotate: false
+              }, ".chart-two");
       }); //end ready
     </script>
   </body>
