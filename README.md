@@ -1,4 +1,7 @@
-# drawBarChart(data, options, element) 
+# A Bar Chart Generator
+
+## The function:
+`drawBarChart(data, options, element)`
 
 ## function parameters
 
@@ -62,6 +65,7 @@
 
 * currently, to avoid some bugs, each chart should have its own parent container.
 * each element inside of the **title** arrays (mainTitle, xTitle, yTitle) in the **options** parameter should be present. If no title is prefered, include an empty array as the *value*, but do not remove the *key* entirely from the **options** object.
+* the values displayed in each bar will be black. There us no way of modifying their color when invoking the function. The user can change the color at the .inner selector in the stylesheet
 
 ## Examples
 
