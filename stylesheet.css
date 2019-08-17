@@ -99,6 +99,7 @@
   height: 20px;
   width: 20px;
   margin-right: 5px;
+  flex-shrink: 0;
 }
 .rotated {
   transform: rotate(45deg);
