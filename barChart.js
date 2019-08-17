@@ -69,7 +69,6 @@ function createStack(dataArr, visArr, elem) {
               "height" : dataArr[0][i],
               "background-color" : visArr[0][i][1],
               "align-items" : visArr[2],
-              "color" : "black"
             })
           .text(dataArr[1][i]);
   }
@@ -97,7 +96,6 @@ function createSingle(dataArr, visArr, elem) {
             "height" : dataArr[0],
             "background-color" : visArr[0],
             "align-items" : visArr[2],
-            "color" : "black",
           })
         .text(dataArr[1]);
 
