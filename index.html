@@ -29,7 +29,7 @@
       {title: "South\xa0Huron", value: 9945}
      ],
         {
-          scale: [0, 10000, 1000],
+          scale: [2000, 10000, 1000],
           width: "800px",
           height: "500px",
           mainTitle: ["Townships of Huron County", "18px", "gray"],
@@ -53,25 +53,26 @@
         }, ".chart-three");
         
         drawBarChart([
-    {title: "winter", value: [12, 2, 10]},
-    {title: "spring", value: [3, 13, 4]},
-    {title: "summer", value: [4, 16, 1]},
-    {title: "autumn", value: [14, 4, 13]}
+    {title: "Nikita Kucherov", value: [41, 53, 34]},
+    {title: "Connor MacDavid", value: [42, 56, 19]},
+    {title: "Patrick Kane", value: [44, 40, 24]},
+    {title: "Leon Draisaitl", value: [50, 34, 22]},
+    {title: "Brad Marchand", value: [37, 35, 29]}
               ],
               {
-                scale: [0, 35, 5],
+                scale: [0, 130, 10],
                 width: "900px",
                 height: "700px",
-                mainTitle: ["Items Purchased", "20px", "red"],
-                xTitle: ["season", "16px", "black"],
-                yTitle: ["amount", "16px", "green"],
+                mainTitle: ["NHL Leading Scorers", "20px", "black"],
+                xTitle: ["Player", "16px", "black"],
+                yTitle: ["total points", "16px", "black"],
                 positionValues: "center",
-                labelColor: "red",
+                labelColor: "black",
                 barColor: [
-                  ["pants", "blue"],
-                  ["shorts", "red"],
-                  ["coats", "gray"]                        
-                  ],
+                  ["Goals", "#61dc67"],
+                  ["Primary Assists", "#9ce9a0"],
+                  ["Secondary Assists", "#d7f6d9"]                        
+                ],
                 padding: "15px",
                 rotate: false
               }, ".chart-two");
