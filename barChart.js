@@ -203,3 +203,25 @@ const drawBarChart = function(data, options, element) {
 
 } //end drawBarChart()
 
+$(function() {
+  drawBarChart(
+    [
+      {title: 2015, value: 103},
+      {title: 2016, value: 134},
+      {title: 2017, value: 120},
+      {title: 2018, value: 147}
+    ],
+    {
+      scale: [0, 150, 25],
+      height: "400px",
+      mainTitle: ["Attendence from '15-'18", "20px", "blue"],
+      xTitle: ["Year", "16px", "black"],
+      yTitle: ["Number of Attendees", "16px", "black"],
+      positionValues: "start",
+      labelColor: "gray",
+      barColor: ["#3B6F5B", "#598977", "#144633", "#063020"],
+      padding: "5px",
+      rotate: false
+    }, ".chart-one"
+  );
+}); //end ready
