@@ -39,7 +39,7 @@
     rotate: false
   }
 ```
-  * `scale:` is an array containing the **start**, **end**, and **increment** that will determine how the y-axis is layed out.
+  * `scale:` is an array containing the **start**, **end**, and **increment** that will determine how the y-axis is layed out. If using stacked values, always use 0 to start the scale.
   * `width:` and `height:` will determine the chart's size.
   * Each **Title** key contains an array with 3 strings: 
     - the title itself
@@ -57,7 +57,7 @@
               ]
   ```
   * `padding: ` sets the gap between each bar.
-  * `rotate: ` will rotate the labels applied to each bar in order to accomodate lengthy titles. simply set to `true` or `false`.
+  * `rotate: ` will rotate the labels applied to each bar in order to accomodate lengthy titles. simply set to `true` or `false`. Adjust the `padding-top` declaration in the `.shifted` selector in the stylesheet to position the title of the x-axis appropriately
 
 3. **element:** should include a period for class, or hashtag for id: `".new-bar"` or `"#new-item"`
 
@@ -65,7 +65,8 @@
 
 * currently, to avoid some bugs, each chart should have its own parent container.
 * each element inside of the **title** arrays (mainTitle, xTitle, yTitle) in the **options** parameter should be present. If no title is prefered, include an empty array as the *value*, but do not remove the *key* entirely from the **options** object.
-* the values displayed in each bar will be black. There us no way of modifying their color when invoking the function. The user can change the color at the .inner selector in the stylesheet
+* the values displayed in each bar will be black. There is no way of modifying their color when invoking the function. The user can change the color at the .inner selector in the stylesheet
+* when using stacked values the `scale` key inside the `options` parameter should always start at 0.
 
 ## Examples
 
