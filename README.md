@@ -1,5 +1,11 @@
 # A Bar Chart Generator
 
+## About
+This project is part of the prep work curriculum for Lighthouse Labs. It uses HTML, CSS, and Javascript (with jQuery). The function allows users to generate and print a bar chart to an HTML page. I'll try to explain the usage of the function below
+
+### Resources used
+I go to [Mozilla Developers Network](https://developer.mozilla.org/en-US/) to find answers. As well as [w3schools.com](https://www.w3schools.com/), and [stackoverflow](https://stackoverflow.com/) for more specific answers. [Javascript & jQuery: the missing manual](http://shop.oreilly.com/product/0636920032663.do?CMP=ILC-MMcdpag3s) has also been helpful, along with the CSS edition of *The Missing Manual* series.
+
 ## The function:
 `drawBarChart(data, options, element)`
 
@@ -65,8 +71,14 @@
 
 * currently, to avoid some bugs, each chart should have its own parent container.
 * each element inside of the **title** arrays (mainTitle, xTitle, yTitle) in the **options** parameter should be present. If no title is prefered, include an empty array as the *value*, but do not remove the *key* entirely from the **options** object.
-* the values displayed in each bar will be black. There is no way of modifying their color when invoking the function. The user can change the color at the .inner selector in the stylesheet
+* the values displayed in each bar will be black. There is no way of modifying their color when invoking the function. The user can change the color at the `.inner` selector in the stylesheet. However, this will affect each chart that is generated
+* when rotating the labels beneath each bar, the x-axis title can be moved further from the chart to accommodate the slanted labels by adjusting the `padding-top` declaration inside the `.shifted` selector.  However, this will affect each chart that is generated.
 * when using stacked values the `scale` key inside the `options` parameter should always start at 0.
+* Labels beneath each bar are aligned to the left.
+* only the color and size of the titles are customizable when invoking the function. 
+* a bar color must be provided for each bar (or each bar in a stack). There is no shortcut if the user would prefer each bar be the same color. In other words, the value of `barColor` always needs to be an array with 1 element for each value
+* `width` can be set to a percentage, for a little responsiveness. But using percentage value for the value of `height` will take extra work. 
+
 
 ## Examples
 
@@ -75,3 +87,7 @@
 ## what does the future hold?
 
 * I would like to make it possible for numbers in the millions or billions to be displayed in a more readable way: 1.5M, not 1,500,000
+* allow the labels beneath the bars to be center alligned
+* improve the feature that rotates the labels beneath each bar
+* improve the responsiveness of the charts. Little attention has yet to be paid to this
+* lots more can be done to improve the visual appeal of the chart
