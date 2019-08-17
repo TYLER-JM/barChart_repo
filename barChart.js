@@ -23,8 +23,7 @@ function getScale(s, e, inc) {
     let val = 100 / ((e-s)/inc);
     let x = (val*j).toFixed(2) + "%";
     let y = (val*j-2.5).toFixed(2) + "%";
-    let z = inc*j;
-    arrOut.push([x,y,z]);
+    arrOut.push([x,y,i]);
   }
   return arrOut;
 }
@@ -106,7 +105,7 @@ function rotateLabels(parent) {
   $(parent + " .xTitle").addClass("shifted");
 }
 
-var drawBarChart = function(data, options, element) {
+const drawBarChart = function(data, options, element) {
 
   var container = $(makeEl("div", "chart-container"));
   var chart = $(makeEl("div", "chart"));
@@ -204,24 +203,3 @@ var drawBarChart = function(data, options, element) {
 
 } //end drawBarChart()
 
-$(function() {
-  drawBarChart([
-    {title: "Dave", value: 21},
-    {title: "Amin", value: 32},
-    {title: "Sarah", value: 25}
-  ],
-  {
-    scale: [0, 40, 10],
-    width: "500px",
-    height: "400px",
-    mainTitle: ["Employees", "16px", "blue"],
-    xTitle: ["Names", "14px", "#60484c"],
-    yTitle: ["Age", "14px", "#60484c"],
-    positionValues: "end",
-    labelColor: "green",
-    barColor: ["pink", "salmon", "red"],
-    padding: "20px",
-    rotate: false
-  }, ".chart-one");
-
-}); //end ready
