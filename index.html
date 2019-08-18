@@ -5,14 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-    
-  </head>
-  <body>
-    <div class="chart-one"></div>
-    <div class="chart-two"></div>
-    <div class="chart-three"></div>
     <script type="text/javascript" src="barChart.js"></script>
-
     <script type="text/javascript">
       $(function() {
         
@@ -77,5 +70,18 @@
               }, ".chart-two");
       }); //end ready
     </script>
+    <style>
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="chart-two"></div>
+      <div class="chart-three"></div>
+    </div>
   </body>
 </html>
