@@ -30,7 +30,7 @@ I go to [Mozilla Developers Network](https://developer.mozilla.org/en-US/) to fi
   ```
   ...each element in each `data.value` array will correspond to a nested array in the `barColor` array found in the **options** parameter, where the **title** and **color** of each *sub-catagory* can be set.
   
-2. **options**: an object with all of the customizable elements of the bar chart. Some of the *key* *value* pairs are optional, where the chart will still display correctly. However, many of them must be included. It will look something like this...
+2. **options**: an object with all of the customizable elements of the bar chart. Some of the *key* *value* pairs are optional, where the chart will still display correctly. However, some of them must be included. It will look something like this...
 
 ```javascript
   {
@@ -63,7 +63,8 @@ I go to [Mozilla Developers Network](https://developer.mozilla.org/en-US/) to fi
     - the title itself
     - the desired size
     - the desired color
-    These are **mandatory**.
+
+    These are **mandatory**. If you would like to omit a title, include an empty array as the *value* for that particular title. But do not remove the *key* entirely from the object.
 
   * `positionValues:` should be set to something that the css rule `align-items:` can take, i.e... `start`, `center`, or `end`. It will position the values displayed inside the bar at either the top, middle, or bottom of the bar. This is **optional**.
   * `labelColor:` will set the color of the labels displayed beneath each bar. This is **optional**.
@@ -83,20 +84,19 @@ I go to [Mozilla Developers Network](https://developer.mozilla.org/en-US/) to fi
 ## Known Bugs and Limitations
 
 * currently, to avoid some bugs, each chart should have its own parent container.
-* each element inside of the **title** arrays (mainTitle, xTitle, yTitle) in the **options** parameter should be present. If no title is prefered, include an empty array as the *value*, but do not remove the *key* entirely from the **options** object.
 * the values displayed in each bar will be black. There is no way of modifying their color when invoking the function. The user can change the color at the `.inner` selector in the stylesheet. However, this will affect each chart that is generated
 * when rotating the labels beneath each bar, the x-axis title can be moved further from the chart to accommodate the slanted labels by adjusting the `padding-top` declaration inside the `.shifted` selector.  However, this will affect each chart that is generated.
 * when using stacked values the `scale` key inside the `options` parameter should always start at 0.
 * Labels beneath each bar are aligned to the left, with no way of customizing when invoking the function.
 * only the color and size of the titles are customizable when invoking the function. 
-* a bar color must be provided for each bar (or each bar in a stack). There is no shortcut if the user would prefer each bar be the same color. In other words, the value of `barColor` always needs to be an array with 1 element for each object inside the **data** parameter
+* a bar color must be provided for each bar (or each *sub-catagory* in a stack). There is no shortcut if the user would prefer each bar be the same color. In other words, when displaying a single value for each bar, the *value* of `barColor` always needs to be an array with 1 element for each object inside the **data** parameter.
 * `width` can be set to a percentage, for a little responsiveness. But using a percentage value for `height` requires the parent container to have its height set already, otherwise the chart seems to flatten itself. 
 
 
 ## Examples
-The example below has no x-axis title in order to make room for the slanted labels.
+1. The example below has no x-axis title in order to make room for the slanted labels:
 ![Image of Bar Chart](/example-barChart.png)
-The example below uses stacked values.
+2. The example below uses stacked values:
 ![Another example of the function](/example-barChart2.png)
 
 ## what does the future hold?
