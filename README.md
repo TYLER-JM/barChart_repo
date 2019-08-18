@@ -15,8 +15,9 @@ I go to [Mozilla Developers Network](https://developer.mozilla.org/en-US/) to fi
 
   ```javascript
   [
-    {title: "January", value: 31},
-    {title: "February", value: 28},
+    {title: "Howick", value: 3852},
+    {title: "Bluewater", value: 7120},
+    {title: "Goderich", value: 7628},
   ]
   ```
 
@@ -24,29 +25,40 @@ I go to [Mozilla Developers Network](https://developer.mozilla.org/en-US/) to fi
   for one of the *sub-catagories*, like this...
 
   ```javascript
-    {title: "Clothes", value: [14, 10, 7]},
+    {title: "Nikita Kucherov", value: [41, 53, 34]},
+    {title: "Connor MacDavid", value: [42, 56, 19]},
   ```
-  ...each element in the `data.value` array will correspond to a nested array in the `barColor` array found in the **options** parameter, where the **title** and **color** of each *sub-catagory* can be set.
+  ...each element in each `data.value` array will correspond to a nested array in the `barColor` array found in the **options** parameter, where the **title** and **color** of each *sub-catagory* can be set.
   
 2. **options**: an object with all of the customizable elements of the bar chart. It will look something like this...
 
 ```javascript
   {
-    scale: [0, 35, 5],
-    width: "500px",
-    height: "400px",
-    mainTitle: ["the Main Title", "20px", "black"],
-    xTitle: ["the x-axis Title", "12px", "blue"],
-    yTitle: ["the y-axis Title", "12px", "red"],
-    positionValues: "start",
-    labelColor: "red",
-    barColor: ["#336bff", "#6690ff", "#99b5ff"],
-    padding: "15px",
-    rotate: false
+    scale: [2000, 10000, 1000],
+    width: "800px",
+    height: "500px",
+    mainTitle: ["Townships of Huron County", "18px", "gray"],
+    xTitle: ["Township Name", "14px", "#6133ff"],
+    yTitle: ["Population", "14px", "#6133ff"],
+    positionValues: "end",
+    labelColor: "#ff6133",
+    barColor: [
+      "#336bff",
+      "#6690ff",
+      "#99b5ff",
+      "#6c7a9f",
+      "#5975bf",
+      "#b3c7ff",
+      "#ccdaff",
+      "#e5ecff",
+      "#6378af"
+              ],
+    padding: "20px",
+    rotate: true
   }
 ```
   * `scale:` is an array containing the **start**, **end**, and **increment** that will determine how the y-axis is layed out. If using stacked values, always use 0 to start the scale.
-  * `width:` and `height:` will determine the chart's size.
+  * `width:` and `height:` will determine the chart's size. If the size of the parent container has been set, the *width* and *height* of the bar chart can be set using percentage values to make the chart more responsive.
   * Each **Title** key contains an array with 3 strings: 
     - the title itself
     - the desired size
@@ -57,15 +69,15 @@ I go to [Mozilla Developers Network](https://developer.mozilla.org/en-US/) to fi
   * `barColor:` will be an array of colors in the form of strings, each one corresponding to the object at the same index of the **data** parameter. If using stacked values `barColor` will take a 2-D array, each nested array will include a **title** and **color** that will correspond to the value at the same index inside of each `data.value` array: in the following example the array at `barColor[0]` will refer to the value at `data[i].value[0]`.
   ```javascript
     barColor: [
-                ["pants", "blue"],
-                ["shorts", "red"],
-                ["coats", "gray"]                        
-              ]
+                ["Goals", "#61dc67"],
+                ["Primary Assists", "#9ce9a0"],
+                ["Secondary Assists", "#d7f6d9"]            
+              ],
   ```
   * `padding: ` sets the gap between each bar.
   * `rotate: ` will rotate the labels applied to each bar in order to accomodate lengthy titles. simply set to `true` or `false`. Adjust the `padding-top` declaration in the `.shifted` selector in the stylesheet to position the title of the x-axis appropriately
 
-3. **element:** should include a period for class, or hashtag for id: `".new-bar"` or `"#new-item"`
+3. **element:** should include a period for class, or hashtag for id: `".new-bar"` or `"#new-item"`. Just like when selecting elements with jQuery.
 
 ## Known Bugs, and limitations
 
