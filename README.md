@@ -21,8 +21,7 @@ I go to [Mozilla Developers Network](https://developer.mozilla.org/en-US/) to fi
   ]
   ```
 
-  -if including stacked bars, `data.value` will be an array of numbers, each one representing the value
-  for one of the *sub-catagories*, like this...
+  -if including stacked bars, the value of the `value` key in each object will be an array of numbers, each one representing the number for one of the *sub-catagories*, like this...
 
   ```javascript
     {title: "Nikita Kucherov", value: [41, 53, 34]},
