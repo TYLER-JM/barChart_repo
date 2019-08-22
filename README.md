@@ -21,13 +21,13 @@ I go to [Mozilla Developers Network](https://developer.mozilla.org/en-US/) to fi
   ]
   ```
 
-  -if including stacked bars, the value of the `value` key in each object will be an array of numbers, each one representing the number for one of the *sub-catagories*, like this...
+  -if including stacked bars, the value of the `value` key in each object will be an array of numbers, each one representing one of the *sub-catagories*, like this...
 
   ```javascript
     {title: "Nikita Kucherov", value: [41, 53, 34]},
     {title: "Connor MacDavid", value: [42, 56, 19]},
   ```
-  ...each element in each `data.value` array will correspond to a nested array in the `barColor` array found in the **options** parameter, where the **title** and **color** of each *sub-catagory* can be set.
+  ...each element in each `value` array will correspond to a nested array in the `barColor` array found in the **options** parameter, where the **title** and **color** of each *sub-catagory* can be set.
   
 2. **options**: an object with all of the customizable elements of the bar chart. Some of the *key* *value* pairs are optional, where the chart will still display correctly. However, some of them must be included. It will look something like this...
 
@@ -90,6 +90,7 @@ I go to [Mozilla Developers Network](https://developer.mozilla.org/en-US/) to fi
 * only the color and size of the titles are customizable when invoking the function. 
 * a bar color must be provided for each bar (or each *sub-catagory* in a stack). There is no shortcut if the user would prefer each bar be the same color. In other words, when displaying a single value for each bar, the *value* of `barColor` always needs to be an array with 1 element for each object inside the **data** parameter.
 * `width` can be set to a percentage, for a little responsiveness. But using a percentage value for `height` requires the parent container to have its height set already, otherwise the chart seems to flatten itself. 
+* The legend that is generated if stacked values are used is not customizable in any way when invoking the function
 
 
 ## Examples
@@ -102,6 +103,7 @@ I go to [Mozilla Developers Network](https://developer.mozilla.org/en-US/) to fi
 
 * I would like to make it possible for numbers in the millions or billions to be displayed in a more readable way: 1.5M, not 1,500,000
 * allow the labels beneath the bars to be center alligned
+* allow the position and characteristics of the legend to be customized
 * improve the feature that rotates the labels beneath each bar
 * improve the responsiveness of the charts. Little attention has yet to be paid to this
 * lots more can be done to improve the visual appeal of the chart
