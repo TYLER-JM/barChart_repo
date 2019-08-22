@@ -27,7 +27,7 @@ I go to [Mozilla Developers Network](https://developer.mozilla.org/en-US/) to fi
     {title: "Nikita Kucherov", value: [41, 53, 34]},
     {title: "Connor MacDavid", value: [42, 56, 19]},
   ```
-  ...each element in each `value` array will correspond to a nested array in the `barColor` array found in the **options** parameter, where the **title** and **color** of each *sub-catagory* can be set.
+  ...each number in each `value` array will correspond to a nested array in the `barColor` array found in the **options** parameter, where the **title** and **color** of each *sub-catagory* can be set.
   
 2. **options**: an object with all of the customizable elements of the bar chart. Some of the *key* *value* pairs are optional, where the chart will still display correctly. However, some of them must be included. It will look something like this...
 
