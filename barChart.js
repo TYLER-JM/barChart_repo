@@ -203,6 +203,9 @@ const drawBarChart = function(data, options, element) {
 
 } //end drawBarChart()
 
+//// THE FOLLOWING IS ONLY AN
+//// EXAMPLE OF THE FUNCTION BEING INVOKED
+//// make sure to call the function inside of $(document).ready()
 $(function() {
   drawBarChart(
     [
@@ -226,3 +229,5 @@ $(function() {
     }, ".chart-one"
   );
 }); //end ready
+
+//// END OF THE FUNCTION INVOCATION
