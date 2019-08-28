@@ -218,12 +218,12 @@ $(function() {
       scale: [0, 150, 25],
       width: "100%",
       height: "400px",
-      mainTitle: ["Attendence from '15-'18", "20px", "blue"],
+      mainTitle: ["Attendence from '15-'18", "20px", "#6199dd"],
       xTitle: [],
       yTitle: ["Number of Attendees", "16px", "black"],
       positionValues: "center",
       labelColor: "gray",
-      barColor: ["#3B6F5B", "#598977", "#144633", "#063020"],
+      barColor: ["#ffecb3", "#ffe0b2", "#ffab91", "#bcaaa4"],
       padding: "5px",
       rotate: false
     }, ".chart-one"
