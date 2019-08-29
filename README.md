@@ -80,6 +80,29 @@ I go to [Mozilla Developers Network](https://developer.mozilla.org/en-US/) to fi
 
 3. **element:** should include a period for class, or hashtag for id: `".new-bar"` or `"#new-item"`. Just like when selecting elements with jQuery.
 
+## Helper functions
+
+1. `function makeEl(type, className)`
+  - This function is used to help create new DOM elements. It returns a string that is used with jQuery to make new elements and attach them to a variable. It takes two arguments both in the form of a string:
+    1. the type of element, i.e. "div", "p", "h1".
+    2. an optional class name to be applied to the new element
+
+2. `function getScale(s, e, inc)`
+  - This function is used to help generate the scale displayed along the y-axis. It returns a 2D array. Each sub-array contains:
+    1. one string used for positioning the markers
+    2. one string used to position the numbers displayed beside the markers
+    3. and one number used as the number to be displayed beside the marker. In that order
+  - It takes 3 arguments, they are each taken from the information the user inputs to `options.scale` :
+    1. `s` - the starting point for the scale
+    2. `e` - the ending point for the scale
+    3. `inc` - the increment used in the scale
+
+3. `function createYAxis(elem, selectors, arr)`
+  - This function generates the scale along the Y axis. It is used in a loop within the main function in order to create the necessary number of markers along the axis. It takes 3 arguments:
+    1. `elem` - the element that the marker and number will be append to: `var yAxis`
+    2. `selectors` - an array of with the element that the entire chart resides inside, and the ".yAxis" class name.
+    3. `arr` - which will be one of the sub-arrays produced by the helper function `getScale()` 
+
 ## Known Bugs and Limitations
 
 * currently, to avoid some bugs, each chart should have its own parent container.
