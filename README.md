@@ -106,14 +106,18 @@ I go to [Mozilla Developers Network](https://developer.mozilla.org/en-US/) to fi
 4. `function createStack(dataArr, visArr, elem)`
   - this is used inside the main function to create stacked bars when necessary. It is used inside a loop to create as many stacks as needed. It takes three arguments: two arrays, and an element to append everything to.
     1. `dataArr` is the first parameter, it takes three pieces of information:
+
       1. a percentage value that will be used to set the heights of each bar in each stack of bars. This is in the form of a string, and is taken from the variable `scaledValues`
       2. the value passed into the main function by the user. This is the vale that will be displayed inside each bar.
       3. the title for each stack of bars. It will be displayed under each stack. This will have been passed into the main function by the user.
+
     2. `visArr` is the second parameter, it tales four pieces of information:
+
       1. the color to be applied to each bar in the stack. This will be passed into the main function by the user as part of the `options` parameter.
       2. the color to be applied to the labels beneath each stack. Also passed by the user into the function through the `options` parameter
       3. a string that the user has passed into the main function indicating where to position the values displayed inside each bar.
       4. a value the user has passed into the main function indicating how much space between each stack.
+      
     3. `elem` is the third parameter. It is the DOM element of which all newly created elements will be descendents. This will be the `chart` variable created in the main function
 
 5. `function createSingle(dataArr, visArr, elem)`
