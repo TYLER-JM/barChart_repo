@@ -84,8 +84,8 @@ I go to [Mozilla Developers Network](https://developer.mozilla.org/en-US/) to fi
 
 1. `function makeEl(type, className)`
   - This function is used to help create new DOM elements. It returns a string that is used with jQuery to make new elements and attach them to a variable. It takes two arguments both in the form of a string:
-    1. the type of element, i.e. "div", "p", "h1".
-    2. an optional class name to be applied to the new element
+    1. the type of element, i.e. "div", "p", "h1"
+    2. an optional class name to be applied to the new element, i.e. "container", "nav-wrapper"
 
 2. `function getScale(s, e, inc)`
   - This function is used to help generate the scale displayed along the y-axis. It returns a 2D array. Each sub-array contains:
@@ -100,8 +100,29 @@ I go to [Mozilla Developers Network](https://developer.mozilla.org/en-US/) to fi
 3. `function createYAxis(elem, selectors, arr)`
   - This function generates the scale along the Y axis. It is used in a loop within the main function in order to create the necessary number of markers along the axis. It takes 3 arguments:
     1. `elem` - the element that the marker and number will be append to: `var yAxis`
-    2. `selectors` - an array of with the element that the entire chart resides inside, and the ".yAxis" class name.
-    3. `arr` - which will be one of the sub-arrays produced by the helper function `getScale()` 
+    2. `selectors` - an array with the element that the entire chart resides inside, and the ".yAxis" class name.
+    3. `arr` - which will be one of the sub-arrays produced by the helper function `getScale()`
+
+4. `function createStack(dataArr, visArr, elem)`
+  - this is used inside the main function to create stacked bars when necessary. It is used inside a loop to create as many stacks as needed. It takes three arguments: two arrays, and an element to append everything to.
+    1. `dataArr` is the first parameter, it takes three pieces of information:
+      1. a percentage value that will be used to set the heights of each bar in each stack of bars. This is in the form of a string, and is taken from the variable `scaledValues`
+      2. the value passed into the main function by the user. This is the vale that will be displayed inside each bar.
+      3. the title for each stack of bars. It will be displayed under each stack. This will have been passed into the main function by the user.
+    2. `visArr` is the second parameter, it tales four pieces of information:
+      1. the color to be applied to each bar in the stack. This will be passed into the main function by the user as part of the `options` parameter.
+      2. the color to be applied to the labels beneath each stack. Also passed by the user into the function through the `options` parameter
+      3. a string that the user has passed into the main function indicating where to position the values displayed inside each bar.
+      4. a value the user has passed into the main function indicating how much space between each stack.
+    3. `elem` is the third parameter. It is the DOM element of which all newly created elements will be descendents. This will be the `chart` variable created in the main function
+
+5. `function createSingle(dataArr, visArr, elem)`
+  - this is used inside the main function to create a single bar for each value, when stacked values are not used.
+  - the parameters are identical to those of `createStack()` except for the fact that the array at `options.barColor` will only have one dimension to it. Each element of this array is passed into `createSingle()` individually, which allows for each bar to have its own unique color.
+
+6. `function rotateLabels(parent)`
+  - This function is called by the main function if the user has set the value of `options.rotate` to `true`. Its only argument will be the variable `element` created in the main function.
+  - It simply adds the class names `rotated` and `shifted` to the labels beneath each bar (or stack), and the X Axis title, respectively.
 
 ## Known Bugs and Limitations
 
@@ -114,6 +135,7 @@ I go to [Mozilla Developers Network](https://developer.mozilla.org/en-US/) to fi
 * a bar color must be provided for each bar (or each *sub-catagory* in a stack). There is no shortcut if the user would prefer each bar be the same color. In other words, when displaying a single value for each bar, the *value* of `barColor` always needs to be an array with 1 element for each object inside the **data** parameter.
 * `width` can be set to a percentage, for a little responsiveness. But using a percentage value for `height` requires the parent container to have its height set already, otherwise the chart seems to flatten itself. 
 * The legend that is generated if stacked values are used is not customizable in any way when invoking the function
+* some (or maybe all) of the helper function have limited reusability. Especially `createYAxis()`.
 
 
 ## Examples
