@@ -109,7 +109,7 @@ I go to [Mozilla Developers Network](https://developer.mozilla.org/en-US/) to fi
     1. `dataArr` is the first parameter, it takes three pieces of information:
 
       - a percentage value that will be used to set the heights of each bar in each stack of bars. This is in the form of a string, and is taken from the variable `scaledValues`
-      - the value passed into the main function by the user. This is the vale that will be displayed inside each bar.
+      - the value passed into the main function by the user. This is the value that will be displayed inside each bar.
       - the title for each stack of bars. It will be displayed under each stack. This will have been passed into the main function by the user.
 
     2. `visArr` is the second parameter, it tales four pieces of information:
