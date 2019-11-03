@@ -3,6 +3,14 @@
 ## About
 This project is part of the prep work curriculum for Lighthouse Labs. It uses HTML, CSS, and Javascript (with jQuery). The function allows users to generate and print a bar chart to an HTML page. I'll try to explain the usage of the function below
 
+### Setup
+
+1. clone the repo to the parent directory of your project
+2. include **barChart.js**  using a `<script> tag` and **stylesheet.css** using a `<link> tag` in your HTML document . (You'll also need to include jQuery)
+3. call the function within another script tag or external JS file of your own
+4. the third parameter should be the element which will hold the bar chart
+5. see the `index.html` file or the end of the `barChart.js` file for two examples of the function being invoked. Make sure to remove the example given in the `barChart.js` file, or edit to your liking.
+
 ### Resources used
 I go to [Mozilla Developers Network](https://developer.mozilla.org/en-US/) to find answers. As well as [w3schools.com](https://www.w3schools.com/), and [stackoverflow](https://stackoverflow.com/) for more specific answers. [Javascript & jQuery: the missing manual](http://shop.oreilly.com/product/0636920032663.do?CMP=ILC-MMcdpag3s) has also been helpful, along with the CSS edition of *The Missing Manual* series.
 
